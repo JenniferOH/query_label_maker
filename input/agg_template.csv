@@ -1,0 +1,6 @@
+function,function_nat_list
+"max","['maximum', 'max']"
+"min","['minimum', 'min']"
+"avg","['average', 'mean']"
+"sum", "['sum']"
+"stddev","['stddev', 'std deviation', 'standard dev']"

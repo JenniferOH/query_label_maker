@@ -1,0 +1,7 @@
+column,column_format,type
+dt,"%Y-%m-%d",0
+start_time,"%Y-%m-%d %H:%M:%S",1
+end_time,"%Y-%m-%d %H:%M:%S",1
+ts,"%Y-%m-%d %H:%M:%S",1
+etl_start_dtts"%Y%m%d",0
+etl_end_dtts"%Y%m%d",0

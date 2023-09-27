@@ -1,0 +1,10 @@
+table_list,column,type,synonym_list,sample_list
+"['summary','trace']",'step_id','string',"['step id']","[13,14,-3]"
+"['summary','trace']",'param_name','string',"['parameter name','param name','parameters']","['PAR1_ABC','PAR2_AAA']"
+"['summary','trace']",'param_alias','string',"['parameter alias','param alias']","['ABC123','BDSG3']"
+"['trace']",'param_value','number',"['param value','parameter value','param val','parameter val']","[1.234, 5.345, 0.0]"
+"['trace']",'target','string',"['target']","['ABC123','BDSG3']"
+"['summary']",'min_value','number',"['min value','min val']","[1.0, 3.345, 0.0]"
+"['summary']",'max_value','number',"['max value','max val']","[1.0, 8.345, 0.0]"
+"['summary']",'mean_value','number',"['mean value','mean val']","[2.0, 4.345, 0.0]"
+"['summary']",'median','number',"['median value','median val']","[3.0, 1.345, 0.0]"

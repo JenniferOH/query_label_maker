@@ -1,0 +1,11 @@
+type,question,query
+0,"show {select_column_nat} where {where_condition_nat}","SELECT {select_column} FROM {table} WHERE {where_condition}"
+0,"show {select_column_nat} which {where_condition_nat}","SELECT {select_column} FROM {table} WHERE {where_condition}"
+0,"show {select_column_nat} with {where_condition_nat}","SELECT {select_column} FROM {table} WHERE {where_condition}"
+0,"show {select_column_nat} with {where_condition_nat} in {table_nat}","SELECT {select_column} FROM {table} WHERE {where_condition}"
+0,"list {select_column_nat} where {where_condition_nat}","SELECT DISTINCT {select_column} FROM {table} WHERE {where_condition}"
+0,"list {select_column_nat} where {where_condition_nat} in {table_nat}","SELECT DISTINCT {select_column} FROM {table} WHERE {where_condition}"
+1,"how many {count_column_nat} are there {where_condition_nat}","SELECT COUNT( DISTINCT {count_column}) FROM {table} WHERE {where_condition}"
+1,"count {count_column_nat} with {where_condition_nat}","SELECT COUNT( DISTINCT {count_column}) FROM {table} WHERE {where_condition}"
+2,"show {agg_function_nat} of {agg_function_column_nat} for each {select_column_nat} where {where_condition_nat}","SELECT {agg_column}, {agg_function_column} FROM {table} WHERE {where_condition} GROUP BY {agg_column}"
+2,"what is {agg_function_nat} value of {agg_function_column_nat} for each {select_column_nat}","SELECT {agg_column}, {agg_function_column} FROM {table} WHERE {where_condition} GROUP BY {agg_column}"
