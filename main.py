@@ -20,8 +20,8 @@ def parse_option():
 
 
 def main(args):
-    tables = pd.read_csv(args.schema_path, header=0, converters={'table_nat': pd.eval})
-    columns = pd.read_csv(args.schema_path, header=0, converters={'table_list': pd.eval, 'synonym_list': pd.eval, 'sample_list': pd.eval})
+    tables = pd.read_csv(args.tables_path, header=0, converters={'table_nat': pd.eval})
+    columns = pd.read_csv(args.columns_path, header=0, converters={'table_list': pd.eval, 'synonym_list': pd.eval, 'sample_list': pd.eval})
     dt_tp = pd.read_csv(args.datetime_template_path, header=0)
     dtcol_tp = pd.read_csv(args.datecolumn_template_path, header=0)
     query_t = pd.read_csv(args.query_template_path, header=0)
