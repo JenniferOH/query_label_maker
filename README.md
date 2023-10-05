@@ -3,7 +3,7 @@ This is an application to automatically create natural language question and que
 
 Goal is to easily add certain question format or new sql function syntax easily to label data.
 
-I made this since there are hundreds and thousands of tables/columns and I don't want to waste my time on them creating label data for Text2SQL.
+I made this since there are hundreds and thousands of tables/columns and I can't waste my time on them creating thousands of label data for Text2SQL.
 
 ## Input files
 
