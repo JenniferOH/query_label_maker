@@ -1,3 +1,3 @@
 table,table_nat
-trace_flat,"['trace data','trace']"
-summary_flat,"['summary','summary data']"
+trace_flat,"['trace data','trace table']"
+summary_flat,"['summary table','summary data']"

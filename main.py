@@ -35,7 +35,7 @@ def main(args):
     agg_t = pd.read_csv(args.agg_template_path, header=0, converters={'function_nat_list': pd.eval})
 
     # creates datetime condition for both query, and question
-    date_generator = DateGenerator(dt_tp, dtcol_tp)
+    date_generator = DateGenerator(dt_tp, dtcol_tp, columns)
     # creates query and question for all columns and synonyms
     query_generator = QueryGenerator(columns, tables, where_t, query_t, date_generator)
 

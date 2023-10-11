@@ -1,6 +1,8 @@
 import random
 import pandas as pd
 
+WHERE_DELIMETER = ['with ', 'where ', 'which ']
+
 
 class QueryGenerator:
 
@@ -22,8 +24,8 @@ class QueryGenerator:
         col_count = len(column_df)
         print('\n>>>> table {}  columns: {}'.format(table, column_df.column.unique().tolist()))
 
-        for i in range(5):
-            template = self.query_temp.loc[i]
+        for i in range(50):
+            template = self.query_temp.loc[i%8]
             question = template.question
             query = template.query
             max_cols = col_count if col_count < 10 else 10  # max select column count
@@ -38,7 +40,8 @@ class QueryGenerator:
 
             # pick random columns to use in 'where' part
             where_col_df = column_df.sample(random.randint(1, int(max_cols/2)))
-
+            # put date column to the end
+            where_col_df = pd.concat([where_col_df[where_col_df.type != 'date'], where_col_df[where_col_df.type == 'date']])
             where_cond_nat_str = ''
             where_cond_str = ''
             for idx, row in where_col_df.iterrows():
@@ -48,7 +51,12 @@ class QueryGenerator:
                 col_type = row.type
                 sample_list = row['sample_list']
                 if col_type == 'date':
-                    where_cond_str, where_cond_nat_str, where_cond_pk_str = self.date_generator.get_date_condition(row['column'], date_partition)
+                    org_str, nat_str, where_cond_pk_str = self.date_generator.get_date_condition(row['column'], date_partition)
+                    # remove 'and' in where condition if column is partition key
+                    if where_cond_nat_str != '' and row['partition_key'] == 1:
+                        where_cond_nat_str = where_cond_nat_str[:-5]
+                    where_cond_str += org_str
+                    where_cond_nat_str += nat_str
                 else:
                     where_template = self.where_temp[(self.where_temp.type == col_type) | (self.where_temp.type == 'all')].sample(1)
                     sample_value = str(random.choice(sample_list))
@@ -65,15 +73,20 @@ class QueryGenerator:
                         .replace('{value_range1}', str(min(sample_list)))\
                         .replace('{value_range2}', str(max(sample_list)))
 
-            # if i%2 == 0:
-            #     date_org, date_nat = self.date_generator.get_date_condition('dt')
-            #     where_cond_nat_str +=
-
-            if 'date' in where_col_df.type.unique() and date_partition not in where_col_df['column'].values:
+            where_deli = random.choice(WHERE_DELIMETER)
+            if 'date' in where_col_df.type.unique():
                 # if date column was picked as 'where' column, but date type partition key is missing, must add it
-                where_cond_str = where_cond_pk_str + ' AND ' + where_cond_str
+                if date_partition not in where_col_df['column'].values:
+                    where_cond_str = where_cond_pk_str + ' AND ' + where_cond_str
+                # if date partition key is the only 'where' condition column, no need where delimiter
+                elif len(where_col_df) == 1:
+                    where_deli = ''
+
+            if 'dt' in where_col_df['column'].unique():
+                a = 1
 
             question = question.replace('{where_condition_nat}', where_cond_nat_str)\
+                    .replace('{where_delimiter}', where_deli)\
                     .replace('{table_nat}', random.choice(self.table_df[self.table_df.table == table].table_nat.values[0]))
             query = query.replace('{where_condition}', where_cond_str)
 

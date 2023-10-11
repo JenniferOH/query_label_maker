@@ -8,9 +8,10 @@ QUERY_DELIMITER = 'AND'
 
 class DateGenerator:
 
-    def __init__(self, dt_temp, dtcol_temp):
+    def __init__(self, dt_temp, dtcol_temp, columns):
         self.dt_temp = dt_temp
         self.dtcol_temp = dtcol_temp
+        self.columns = columns
 
     # randomly, reformat literal date, remove zero padding in day, add suffix(th/st/nd/rd) to day
     def _day_formatter(self, random_day, formatter):
@@ -40,12 +41,16 @@ class DateGenerator:
 
     def get_date_condition(self, dt_col, dt_part_key, force_range=False):
         assert dt_col in self.dtcol_temp['column'].unique(), "column '{}' must be in datecolumn template!".format(dt_col)
+        assert dt_col in self.columns['column'].unique(), "column '{}'  must be in column template!".format(dt_part_key)
         assert dt_part_key in self.dtcol_temp['column'].unique(), "column '{}'(partition key) must be in datecolumn template!".format(dt_part_key)
+
         col_format = self.dtcol_temp[self.dtcol_temp['column'] == dt_col].iloc[0]['column_format']
         col_type = self.dtcol_temp[self.dtcol_temp['column'] == dt_col].iloc[0]['type']
         pk_col_format = self.dtcol_temp[self.dtcol_temp['column'] == dt_part_key].iloc[0]['column_format']
         pk_col_type = self.dtcol_temp[self.dtcol_temp['column'] == dt_part_key].iloc[0]['type']
         dt_df = self.dt_temp[self.dt_temp.type == col_type].index
+        col_nat_list = self.columns[self.columns['column'] == dt_col].iloc[0]['synonym_list']
+        is_partition = self.columns[self.columns['column'] == dt_col].iloc[0]['partition_key']
 
         # pick random format from nat formats which matches selected dt_col's type
         rpick = random.choice(dt_df)
@@ -53,8 +58,6 @@ class DateGenerator:
         nat_format = self.dt_temp.loc[rpick]['nat_format']
         range = self.dt_temp.loc[rpick]['range']
         # get query format for date partition key with same type and range
-        if range == 1 and dt_col == 'ts':
-            print('!')
         pk_query_format = self.dt_temp[(self.dt_temp.type == pk_col_type) & (self.dt_temp.range == range)].iloc[0]['query_format']
 
         random_day = datetime.now() - timedelta(int(random.random() * 2 * 30 * 12), hours=int(random.random() * 24), minutes=int(random.random() * 60))
@@ -67,10 +70,13 @@ class DateGenerator:
             nat_delimiter = nat_format.find(BASE_DELIMITER)
             nat_range_dt1 = nat_format[:nat_delimiter]
             nat_range_dt2 = nat_format[nat_delimiter:]
-
             nat_range_dt1 = self._daymonth_formatter(random_day, nat_range_dt1)
             nat_range_dt2 = self._daymonth_formatter(random_day2, nat_range_dt2)
             date_nat = nat_range_dt1 + nat_range_dt2
+            if is_partition:
+                date_nat = date_nat.replace('{date_column_nat}', '')
+            else:
+                date_nat = date_nat.replace('{date_column_nat}', random.choice(col_nat_list))
             date_nat = date_nat.replace('~', random.choice(RANGE_DELIMITER))  # replace range delimiter randomly
 
             # construct date range condition query
@@ -91,7 +97,10 @@ class DateGenerator:
 
         # get fixed datetime condition
         else:
-            date_nat = self._daymonth_formatter(random_day, nat_format)
+            date_col_nat = random.choice(col_nat_list)
+            if is_partition:
+                date_col_nat = ''
+            date_nat = self._daymonth_formatter(random_day, nat_format).replace('{date_column_nat}', date_col_nat)
             date_org = query_format.replace('{date_column}', dt_col).replace('{datetime}', datetime.strftime(random_day, col_format))
             partition_org = pk_query_format.replace('{date_column}', dt_part_key).replace('{datetime}', datetime.strftime(random_day, pk_col_format))
 

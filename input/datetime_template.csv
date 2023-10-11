@@ -1,15 +1,15 @@
 query_format,nat_format,type,range
-"{date_column} = '{datetime}'","in %d %B %Y",0,0
-"{date_column} = '{datetime}'","in %d %b %Y",0,0
-"{date_column} = '{datetime}'","in %B %d %Y",0,0
-"{date_column} = '{datetime}'","in %Y/%m/%d",0,0
-"{date_column} = '{datetime}'","in %Y-%m-%d",0,0
-"{date_column} BETWEEN '{datetime}' AND '{datetime}'","in %Y-%m-%d ~ %Y-%m-%d",0,1
-"{date_column} BETWEEN '{datetime}' AND '{datetime}'","in %Y between %m/%d ~ %m/%d",0,1
+"{date_column} = '{datetime}'","{date_column_nat} in %d %B %Y",0,0
+"{date_column} = '{datetime}'","{date_column_nat} in %d %b %Y",0,0
+"{date_column} = '{datetime}'","{date_column_nat} in %B %d %Y",0,0
+"{date_column} = '{datetime}'","{date_column_nat} in %Y/%m/%d",0,0
+"{date_column} = '{datetime}'","{date_column_nat} in %Y-%m-%d",0,0
+"{date_column} BETWEEN '{datetime}' AND '{datetime}'","{date_column_nat} in %Y-%m-%d ~ %Y-%m-%d",0,1
+"{date_column} BETWEEN '{datetime}' AND '{datetime}'","{date_column_nat} in %Y between %m/%d ~ %m/%d",0,1
 "{date_column} BETWEEN '{datetime}' AND '{datetime}'","{date_column_nat} between %Y-%m-%d ~ %Y-%m-%d",0,1
-"{date_column} BETWEEN '{datetime}' AND '{datetime}'","between %Y-%m-%d ~ %Y-%m-%d",0,1
-"{date_column} = CAST('{datetime}' AS TIMESTAMP)","at %Y-%m-%d %H:%M:%S",1,0
-"{date_column} = CAST('{datetime}' AS TIMESTAMP)","in %Y-%m-%d %H:%M:%S",1,0
-"{date_column} BETWEEN CAST('{datetime}' AS TIMESTAMP) AND CAST('{datetime}' AS TIMESTAMP)","in %Y-%m-%d between %H:%M:%S ~ %H:%M:%S",1,1
-"{date_column} BETWEEN CAST('{datetime}' AS TIMESTAMP) AND CAST('{datetime}' AS TIMESTAMP)","at %H:%M:%S ~ %H:%M:%S in %Y-%m-%d ",1,1
-"{date_column} BETWEEN CAST('{datetime}' AS TIMESTAMP) AND CAST('{datetime}' AS TIMESTAMP)","in between %Y-%m-%d %H:%M:%S ~ %Y-%m-%d %H:%M:%S",1,1
+"{date_column} BETWEEN '{datetime}' AND '{datetime}'","{date_column_nat} between %Y-%m-%d ~ %Y-%m-%d",0,1
+"{date_column} = CAST('{datetime}' AS TIMESTAMP)","{date_column_nat} at %Y-%m-%d %H:%M:%S",1,0
+"{date_column} = CAST('{datetime}' AS TIMESTAMP)","{date_column_nat} in %Y-%m-%d %H:%M:%S",1,0
+"{date_column} BETWEEN CAST('{datetime}' AS TIMESTAMP) AND CAST('{datetime}' AS TIMESTAMP)","{date_column_nat} in %Y-%m-%d between %H:%M:%S ~ %H:%M:%S",1,1
+"{date_column} BETWEEN CAST('{datetime}' AS TIMESTAMP) AND CAST('{datetime}' AS TIMESTAMP)","{date_column_nat} at %H:%M:%S ~ %H:%M:%S in %Y-%m-%d ",1,1
+"{date_column} BETWEEN CAST('{datetime}' AS TIMESTAMP) AND CAST('{datetime}' AS TIMESTAMP)","{date_column_nat} in between %Y-%m-%d %H:%M:%S ~ %Y-%m-%d %H:%M:%S",1,1
