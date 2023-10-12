@@ -63,6 +63,7 @@ class QueryGenerator:
                 # pick numeric columns for aggregation
                 agg_func_col_df = numeric_column_df.sample(random.randint(1, len(numeric_column_df)))
                 agg_function_column_nat = ', '.join(agg_func_col_df.apply(lambda x: random.choice(x['synonym_list']), axis=1).tolist())
+                agg_function_column_list = agg_func_col_df.column.tolist()
 
                 # re-pick select columns which are not used for aggretation
                 select_col_df = column_df[~column_df.column.isin(agg_func_col_df)].sample(random.randint(1, max_cols - len(numeric_column_df)))
@@ -71,7 +72,7 @@ class QueryGenerator:
 
                 agg_function_column = ''
                 for func in agg_func_list:
-                    agg_function_column += ', '.join([AGG_FORMAT.replace('{agg_function}', func).replace('{agg_column}', col) for col in select_column_list])
+                    agg_function_column += ', '.join([AGG_FORMAT.replace('{agg_function}', func).replace('{agg_column}', col) for col in agg_function_column_list])
                     if agg_func_list[-1] != func:
                         agg_function_column += ', '
 
