@@ -37,7 +37,7 @@ def main(args):
     # creates datetime condition for both query, and question
     date_generator = DateGenerator(dt_tp, dtcol_tp, columns)
     # creates query and question for all columns and synonyms
-    query_generator = QueryGenerator(columns, tables, where_t, query_t, date_generator)
+    query_generator = QueryGenerator(columns, tables, where_t, query_t, agg_t, date_generator)
 
     for i in range(5):
         print(date_generator.get_date_condition('dt', 'dt'))
