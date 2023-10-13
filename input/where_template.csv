@@ -11,10 +11,10 @@ where_nat,where,type
 {column_nat} is smaller than {value},{column}  <  {value},number
 {column_nat} is smaller or same as {value},{column}  <=  {value},number
 {column_nat} is not {value},{column}  !=  {value},number
-{column_nat} is between {value_range1} ~ {value_range2},{column} BETWEEN {value_range1} AND {value_range2},number
+{column_nat} is between {value_range1} ~ {value_range2},{column} in BETWEEN {value_range1} AND {value_range2},number
 {column_nat} is {value_range1} ~ {value_range2},{column} BETWEEN {value_range1} AND {value_range2},number
 {column_nat} is not null,{column} IS NOT NULL,all
 {column_nat} is null,{column} IS NULL,all
 {column_nat} is empty,{column}  =  '',string
 {column_nat} is not empty,{column}  !=  '',string
-{column_nat} is in {value_list},{column}  in  {value_list},all
+{column_nat} is in {value_list},{column} in {value_list},all

@@ -2,8 +2,9 @@ import random
 import pandas as pd
 
 WHERE_DELIMETER = ['with ', 'where ', 'which ']
-COUNT_FORMAT = 'COUNT ( DISTINCT {select_column} )'
+COUNT_FORMAT = 'COUNT ( DISTINCT {count_column} )'
 AGG_FORMAT = '{agg_function} ( {agg_column} )'
+AND_NAT = [' and ', ' , ']
 
 
 class QueryGenerator:
@@ -29,32 +30,31 @@ class QueryGenerator:
         print('\n>>>> table {}  columns: {}'.format(table, column_df.column.unique().tolist()))
 
         for i in range(50):
-            template = self.query_temp.loc[i%8]
-            template_type = template.type
+            template = self.query_temp.loc[i%17]
+            template_type = template.type.astype(str)
             question = template.question
             query = template.query
             max_cols = col_count if col_count < 10 else 10  # max select column count
 
             # pick random columns for 'select' part
-            select_col_df = column_df.sample(random.randint(1, max_cols))
+            select_col_df = column_df.sample(random.randint(1, max_cols-1))
             select_column_nat_list = select_col_df.apply(lambda x: random.choice(x['synonym_list']), axis=1).tolist()
             select_column_list = select_col_df.column.tolist()
 
-            if template_type == 0:  # simple query
-                question = question.replace('{select_column_nat}', ', '.join(select_column_nat_list))
-                query = query.replace('{select_column}', ' ,  '.join(select_column_list)).replace('{table}', table)
+            # if template_type == '0':  # simple query
+            question = question.replace('{select_column_nat}', ', '.join(select_column_nat_list))
+            query = query.replace('{select_column}', ' ,  '.join(select_column_list)).replace('{table}', table)
 
-            elif template_type == 1:    # count query
-                question = question.replace('{select_column_nat}', ', '.join(select_column_nat_list))
+            if '1' in template_type:    # count query
+                question = question.replace('{count_column_nat}', ', '.join(select_column_nat_list))
                 count_format = ''
                 for select_column in select_column_list:
-                    count_format += COUNT_FORMAT.replace('{select_column}', select_column)
+                    count_format += COUNT_FORMAT.replace('{count_column}', select_column)
                     if select_column_list[-1] != select_column:
                         count_format += ', '
-                query = query.replace('{count_format}', count_format).replace('{table}', table)
+                query = query.replace('{count_format}', count_format)
 
-            elif template_type == 2:    # aggregation
-                # "show {agg_function_nat} of {agg_function_column_nat} for each {select_column_nat} {where_delimiter}{where_condition_nat}","SELECT {select_column}, {agg_function_column} FROM {table} WHERE {where_condition} GROUP BY {select_column}"
+            if '2' in template_type:    # aggregation(group by) query
                 agg_df = self.agg_temp.sample(random.randint(1, 3))
                 agg_func_nat_list = agg_df.apply(lambda x: random.choice(x['function_nat_list']), axis=1).tolist()
                 agg_func_list = agg_df.function.tolist()
@@ -65,11 +65,12 @@ class QueryGenerator:
                 agg_function_column_nat = ', '.join(agg_func_col_df.apply(lambda x: random.choice(x['synonym_list']), axis=1).tolist())
                 agg_function_column_list = agg_func_col_df.column.tolist()
 
-                # re-pick select columns which are not used for aggretation
-                select_col_df = column_df[~column_df.column.isin(agg_func_col_df)].sample(random.randint(1, max_cols - len(numeric_column_df)))
-                select_column_nat_list = select_col_df.apply(lambda x: random.choice(x['synonym_list']), axis=1).tolist()
-                select_column_list = select_col_df.column.tolist()
+                # re-pick columns which are not used for aggretation
+                groupby_col_df = column_df[~column_df.column.isin(agg_func_col_df)].sample(random.randint(1, max_cols - len(numeric_column_df)))
+                groupby_column_nat_list = groupby_col_df.apply(lambda x: random.choice(x['synonym_list']), axis=1).tolist()
+                groupby_column_list = groupby_col_df.column.tolist()
 
+                # make aggregation function calls with columns
                 agg_function_column = ''
                 for func in agg_func_list:
                     agg_function_column += ', '.join([AGG_FORMAT.replace('{agg_function}', func).replace('{agg_column}', col) for col in agg_function_column_list])
@@ -79,9 +80,21 @@ class QueryGenerator:
                 question = question.replace('{agg_function_nat}', agg_function_nat)
                 question = question.replace('{agg_function_column_nat}', agg_function_column_nat)
                 query = query.replace('{agg_function_column}', agg_function_column)
-                question = question.replace('{select_column_nat}', ', '.join(select_column_nat_list))
-                query = query.replace('{select_column}', ' ,  '.join(select_column_list)).replace('{table}', table)
+                question = question.replace('{groupby_column_nat}', ', '.join(groupby_column_nat_list))
+                query = query.replace('{groupby_column}', ' ,  '.join(groupby_column_list))
 
+            if '3' in template_type:    # order by query
+                limit_count = random.randint(1, 100)
+
+                # re-pick columns which are not used for select
+                orderby_col_df = column_df[~column_df.column.isin(select_col_df)].sample(random.randint(1, max_cols - len(select_col_df)))
+                orderby_column_nat_list = orderby_col_df.apply(lambda x: random.choice(x['synonym_list']), axis=1).tolist()
+                orderby_column_list = orderby_col_df.column.tolist()
+
+                question = question.replace('{orderby_column_nat}', ', '.join(orderby_column_nat_list))
+                query = query.replace('{orderby_column}', ' ,  '.join(orderby_column_list))
+                question = question.replace('{limit_count}', str(limit_count))
+                query = query.replace('{limit_count}',  str(limit_count))
 
 
             # pick random columns to use in 'where' part
@@ -92,7 +105,7 @@ class QueryGenerator:
             where_cond_str = ''
             for idx, row in where_col_df.iterrows():
                 if where_cond_nat_str != '':
-                    where_cond_nat_str += ' and '
+                    where_cond_nat_str += AND_NAT[i%2]
                     where_cond_str += ' AND '
                 col_type = row.type
                 sample_list = row['sample_list']
