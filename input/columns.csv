@@ -6,6 +6,7 @@ table_list,column,type,synonym_list,sample_list,partition_key
 "['summary_flat','trace_flat']",eqp_id,string,"['equipment id','eqp id','equipments']","['ABC123']",0
 "['summary_flat','trace_flat']",oper_id,string,"['operation id','oper id']","['DSA_3123','ASD_1324','ASD_1323','BAD_321']",0
 "['summary_flat','trace_flat']",lot_id,string,"['lot id']","['AAA','CCC','CCC']",0
+"['summary_flat','trace_flat']",lot_cd,string,"['lot cd','lot code']","['AAA','CCC','CCC']",0
 "['summary_flat','trace_flat']",dt,date,"['date']","['2023-01-01-','2023-08-01','2023-12-31']",1
 "['summary_flat','trace_flat']",fab,string,"['fab']","['M14','M15','M16']",1
 "['trace_flat']",param_value,number,"['param value','parameter value','param val','parameter val']","[0.0, 1.234, 5.345]",0

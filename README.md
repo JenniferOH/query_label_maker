@@ -7,12 +7,13 @@ I made this since there are hundreds and thousands of tables/columns and I can't
 
 ## Input files
 
-- columns.csv :
-- tables.csv :
-- query_template.csv
-- datetime_template.csv :
-- datecolumn_template.csv : 
-- agg_template.csv : 
+- columns.csv : list of all columns from all the tables (columns: table_list, column, type, synonym_list, sample_list, partition_key)
+- tables.csv : list of all tables (columns: table, table_nat)
+- query_template.csv : query format tempaltes, need to fill template with select, from and where (columns: type, question, query)
+- datetime_template.csv : list of natural language and query in each date format (columns: query_format, nat_format, type, range)
+- datecolumn_template.csv : list of date columns and their date formats (columns: column, column_format, type)
+- agg_template.csv : list of aggregation functions (columns: function, function_nat_list)
+- where_template.csv : list of all kinds of value comparing conditions (columns: where_nat, where,type)
 
 
 ## How to run
