@@ -61,12 +61,12 @@ class QueryGenerator:
                 agg_function_nat = ', '.join(agg_func_nat_list)
 
                 # pick numeric columns for aggregation
-                agg_func_col_df = numeric_column_df.sample(random.randint(1, len(numeric_column_df)))
+                agg_func_col_df = numeric_column_df.sample(random.randint(1, int(len(numeric_column_df)/2))+1)
                 agg_function_column_nat = ', '.join(agg_func_col_df.apply(lambda x: random.choice(x['synonym_list']), axis=1).tolist())
                 agg_function_column_list = agg_func_col_df.column.tolist()
 
                 # re-pick columns which are not used for aggretation
-                groupby_col_df = column_df[~column_df.column.isin(agg_func_col_df)].sample(random.randint(1, max_cols - len(numeric_column_df)))
+                groupby_col_df = column_df[~column_df.column.isin(agg_func_col_df)].sample(random.randint(1, max_cols - int(len(numeric_column_df)/2))+1)
                 groupby_column_nat_list = groupby_col_df.apply(lambda x: random.choice(x['synonym_list']), axis=1).tolist()
                 groupby_column_list = groupby_col_df.column.tolist()
 
