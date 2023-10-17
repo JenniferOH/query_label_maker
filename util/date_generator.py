@@ -39,18 +39,23 @@ class DateGenerator:
 
         return self._day_formatter(random_day, ff)
 
-    def get_date_condition(self, dt_col, dt_part_key, force_range=False):
-        assert dt_col in self.dtcol_temp['column'].unique(), "column '{}' must be in datecolumn template!".format(dt_col)
-        assert dt_col in self.columns['column'].unique(), "column '{}'  must be in column template!".format(dt_part_key)
-        assert dt_part_key in self.dtcol_temp['column'].unique(), "column '{}'(partition key) must be in datecolumn template!".format(dt_part_key)
+    def get_date_condition(self, table, dt_col, dt_part_key, force_range=False):
+        target_dtcol = self.dtcol_temp[self.dtcol_temp.table == table]
+        assert len(target_dtcol) > 0, "column '{}' in table '{}' must be in datecolumn template!".format(dt_col, table)
+        target_dtcol = target_dtcol[target_dtcol['column'] == dt_col]
+        assert len(target_dtcol) > 0, "column '{}' in table '{}' must be in datecolumn template!".format(dt_col, table)
+        target_col = self.columns[self.columns['column'] == dt_col]
+        assert len(target_col) > 0, "column '{}' must be in column template!".format(dt_part_key)
+        parkey_dtcol = self.dtcol_temp[self.dtcol_temp['column'] == dt_part_key]
+        assert len(parkey_dtcol) > 0, "column '{}'(partition key) must be in datecolumn template!".format(dt_part_key)
 
-        col_format = self.dtcol_temp[self.dtcol_temp['column'] == dt_col].iloc[0]['column_format']
-        col_type = self.dtcol_temp[self.dtcol_temp['column'] == dt_col].iloc[0]['type']
-        pk_col_format = self.dtcol_temp[self.dtcol_temp['column'] == dt_part_key].iloc[0]['column_format']
-        pk_col_type = self.dtcol_temp[self.dtcol_temp['column'] == dt_part_key].iloc[0]['type']
+        col_format = target_dtcol.iloc[0]['column_format']
+        col_type = target_dtcol.iloc[0]['type']
+        pk_col_format = parkey_dtcol.iloc[0]['column_format']
+        pk_col_type = parkey_dtcol.iloc[0]['type']
         dt_df = self.dt_temp[self.dt_temp.type == col_type].index
-        col_nat_list = self.columns[self.columns['column'] == dt_col].iloc[0]['synonym_list']
-        is_partition = self.columns[self.columns['column'] == dt_col].iloc[0]['partition_key']
+        col_nat_list = target_col.iloc[0]['synonym_list']
+        is_partition = target_col.iloc[0]['partition_key']
 
         # pick random format from nat formats which matches selected dt_col's type
         rpick = random.choice(dt_df)

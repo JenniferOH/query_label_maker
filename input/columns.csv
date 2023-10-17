@@ -1,14 +1,15 @@
 table_list,column,type,synonym_list,sample_list,partition_key
-"['summary_flat','trace_flat']",step_id,number,"['step id']","[-3, 0, 13, 14]",0
+"['summary_flat','trace_flat','wafer_table']",dt,date,"['date']","['2023-01-01-','2023-08-01','2023-12-31']",1
+"['summary_flat','trace_flat']",fab,string,"['fab']","['M14','M15','M16']",1
+"['wafer_table']",line,string,"['line']","['M14','M15','M16']",1
+"['summary_flat','trace_flat','wafer_table']",step_id,number,"['step id']","[-3, 0, 13, 14]",0
 "['summary_flat','trace_flat']",param_name,string,"['parameter name','param name','parameters']","['PAR1_ABC','PAR2_AAA']",0
 "['summary_flat','trace_flat']",param_alias,string,"['parameter alias','param alias']","['ABC123','BDSG3']",0
-"['summary_flat','trace_flat']",module_name,string,"['module name']","['QWEASD','BDSG3','ADSDDFB']",0
+"['summary_flat','trace_flat','wafer_table']",module_name,string,"['module name']","['QWEASD','BDSG3','ADSDDFB']",0
 "['summary_flat','trace_flat']",eqp_id,string,"['equipment id','eqp id','equipments']","['ABC123']",0
 "['summary_flat','trace_flat']",oper_id,string,"['operation id','oper id']","['DSA_3123','ASD_1324','ASD_1323','BAD_321']",0
-"['summary_flat','trace_flat']",lot_id,string,"['lot id']","['AAA','CCC','CCC']",0
+"['summary_flat','trace_flat','wafer_table']",lot_id,string,"['lot id']","['AAA','CCC','CCC']",0
 "['summary_flat','trace_flat']",lot_cd,string,"['lot cd','lot code']","['AAA','CCC','CCC']",0
-"['summary_flat','trace_flat']",dt,date,"['date']","['2023-01-01-','2023-08-01','2023-12-31']",1
-"['summary_flat','trace_flat']",fab,string,"['fab']","['M14','M15','M16']",1
 "['trace_flat']",param_value,number,"['param value','parameter value','param val','parameter val']","[0.0, 1.234, 5.345]",0
 "['trace_flat']",target,string,"['target']","['GOF_3','AAA_4']",0
 "['trace_flat']",ucl,number,"['upper control limit']","[0.0,1.332, 10.0]",0
@@ -16,12 +17,18 @@ table_list,column,type,synonym_list,sample_list,partition_key
 "['trace_flat']",usl,number,"['upper specification limit']","[0.0,1.332,20.0]",0
 "['trace_flat']",lsl,number,"['lower specification limit']","[0.0,1.332]",0
 "['trace_flat']",ts,date,"['timestamp']","['2023-01-01 00:00:00']",0
-"['summary_flat']",min_val,number,"['min value','min val']","[0.0, 1.0, 3.345]",0
-"['summary_flat']",max_val,number,"['max value','max val']","[0.0, 1.0, 8.345, 100.0]",0
-"['summary_flat']",mean_val,number,"['mean value','mean val']","[0.0, 2.0, 4.345, 10.0]",0
+"['trace_flat']",merge_yn,bool,"['merged']","['Y','N']",0
+"['summary_flat','wafer_table']",min_val,number,"['min value','min val']","[0.0, 1.0, 3.345]",0
+"['summary_flat','wafer_table']",max_val,number,"['max value','max val']","[0.0, 1.0, 8.345, 100.0]",0
+"['summary_flat','wafer_table']",mean_val,number,"['mean value','mean val']","[0.0, 2.0, 4.345, 10.0]",0
 "['summary_flat']",median_val,number,"['median value','median val']","[0.0, 3.0, 1.345, 10.0]",0
 "['summary_flat']",count_val,number,"['count value','count val']","[0.0, 3.0, 10.0, 1000.0]",0
 "['summary_flat']",p95_val,number,"['p95 value','p 95 val','p95 val','probability 95 value','p 95% val']","[0.0, 3.54, 1.32, 10.0]",0
 "['summary_flat']",p5_val,number,"['p5 value','p 5 val','p5 val','probability 5 value','p 5% val']","[0.0, 3.54, 1.32, 5.0]",0
+"['summary_flat']",start_time,date,"['start time','starts']","['2023-01-01 00:00:00']",0
+"['summary_flat']",end_time,date,"['end time','ends']","['2023-01-01 00:00:00']",0
 "['summary_flat']",etl_start_dtts,date,"['etl start datetime','etl start day','etl start']","['20230101','20231231']",0
 "['summary_flat']",etl_end_dtts,date,"['etl end datetime','etl end day','etl start']","['20230101','20231231']",0
+"['wafer_table']",rwk_yn,bool,"['reworked']","['Y','N']",0
+"['wafer_table']",produce_id,string,"['produce id']","['A3123','B32']",0
+"['wafer_table']",merge_grp_id,string,"['merge group id','merge group']","['A3123','B32']",0

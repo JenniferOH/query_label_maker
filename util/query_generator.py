@@ -2,6 +2,7 @@ import random
 import pandas as pd
 
 WHERE_DELIMETER = ['with ', 'where ', 'which ']
+WHERE_DELIMETER_BOOL = ['which ', 'that ']
 COUNT_FORMAT = 'COUNT ( DISTINCT {count_column} )'
 AGG_FORMAT = '{agg_function} ( {agg_column} )'
 AND_NAT = [' and ', ' , ']
@@ -30,7 +31,7 @@ class QueryGenerator:
         print('\n>>>> table {}  columns: {}'.format(table, column_df.column.unique().tolist()))
 
         for i in range(50):
-            template = self.query_temp.loc[i%17]
+            template = self.query_temp.loc[i%len(self.query_temp)]
             template_type = template.type.astype(str)
             question = template.question
             query = template.query
@@ -46,9 +47,12 @@ class QueryGenerator:
             query = query.replace('{select_column}', ' ,  '.join(select_column_list)).replace('{table}', table)
 
             if '1' in template_type:    # count query
-                question = question.replace('{count_column_nat}', ', '.join(select_column_nat_list))
+                count_col_df = column_df[column_df.type == 'string'].sample(random.randint(1, 2))
+                count_column_nat_list = count_col_df.apply(lambda x: random.choice(x['synonym_list']), axis=1).tolist()
+                count_column_list = select_col_df.column.tolist()
+                question = question.replace('{count_column_nat}', ', '.join(count_column_nat_list))
                 count_format = ''
-                for select_column in select_column_list:
+                for select_column in count_column_list:
                     count_format += COUNT_FORMAT.replace('{count_column}', select_column)
                     if select_column_list[-1] != select_column:
                         count_format += ', '
@@ -96,11 +100,11 @@ class QueryGenerator:
                 question = question.replace('{limit_count}', str(limit_count))
                 query = query.replace('{limit_count}',  str(limit_count))
 
-
             # pick random columns to use in 'where' part
             where_col_df = column_df.sample(random.randint(1, int(max_cols/2)))
-            # put date column to the end
-            where_col_df = pd.concat([where_col_df[where_col_df.type != 'date'], where_col_df[where_col_df.type == 'date']])
+            # if there is date type, pick 1 and put date column to the end
+            if len(where_col_df[where_col_df.type == 'date']) > 0:
+                where_col_df = pd.concat([where_col_df[where_col_df.type != 'date'], where_col_df[where_col_df.type == 'date'][:1]])
             where_cond_nat_str = ''
             where_cond_str = ''
             for idx, row in where_col_df.iterrows():
@@ -109,30 +113,48 @@ class QueryGenerator:
                     where_cond_str += ' AND '
                 col_type = row.type
                 sample_list = row['sample_list']
+
                 if col_type == 'date':
-                    org_str, nat_str, where_cond_pk_str = self.date_generator.get_date_condition(row['column'], date_partition)
-                    # remove 'and' in where condition if column is partition key
+                    org_str, nat_str, where_cond_pk_str = self.date_generator.get_date_condition(table, row['column'], date_partition)
+                    # remove 'and' in where condition if column is date partition key
                     if where_cond_nat_str != '' and row['partition_key'] == 1:
                         where_cond_nat_str = where_cond_nat_str[:-5]
                     where_cond_str += org_str
                     where_cond_nat_str += nat_str
+                    where_deli = random.choice(WHERE_DELIMETER)
+                elif col_type == 'bool' and len(where_col_df) < 2:
+                    where_template = self.where_temp[self.where_temp.type == 'bool'].sample(1)
+                    where_cond_nat_str += where_template.where_nat.values[0]\
+                        .replace('{column_nat}', row['synonym_list'][0])
+                    where_cond_str += where_template['where'].values[0]\
+                        .replace('{column}', row['column'])
+                    where_deli = random.choice(WHERE_DELIMETER_BOOL)
                 else:
+                    if col_type == 'bool':
+                        col_type = 'string'
+                        synonym_list = row['synonym_list'][1:]
+                    elif col_type == 'number':
+                        value_list = ', '.join([str(s) for s in sample_list])
+                        synonym_list = row['synonym_list']
+                    else:
+                        value_list = ', '.join(["'{}'".format(s) for s in sample_list])
+                        synonym_list = row['synonym_list']
                     where_template = self.where_temp[(self.where_temp.type == col_type) | (self.where_temp.type == 'all')].sample(1)
                     sample_value = str(random.choice(sample_list))
                     where_cond_nat_str += where_template.where_nat.values[0]\
-                        .replace('{column_nat}', random.choice(row['synonym_list']))\
+                        .replace('{column_nat}', random.choice(synonym_list))\
                         .replace('{value}', sample_value)\
-                        .replace('{value_list}', ', '.join([str(s) for s in sample_list]))\
+                        .replace('{value_list}', value_list)\
                         .replace('{value_range1}', str(min(sample_list)))\
                         .replace('{value_range2}', str(max(sample_list)))
                     where_cond_str += where_template['where'].values[0]\
                         .replace('{column}', row['column'])\
                         .replace('{value}', sample_value)\
-                        .replace('{value_list}', str(sample_list))\
+                        .replace('{value_list}', value_list)\
                         .replace('{value_range1}', str(min(sample_list)))\
                         .replace('{value_range2}', str(max(sample_list)))
+                    where_deli = random.choice(WHERE_DELIMETER)
 
-            where_deli = random.choice(WHERE_DELIMETER)
             if 'date' in where_col_df.type.unique():
                 # if date column was picked as 'where' column, but date type partition key is missing, must add it
                 if date_partition not in where_col_df['column'].values:
