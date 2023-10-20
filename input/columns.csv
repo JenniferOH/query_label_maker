@@ -3,7 +3,7 @@ table_list,column,type,synonym_list,sample_list,partition_key
 "['summary_flat','trace_flat']",fab,string,"['fab']","['M14','M15','M16']",1
 "['wafer_table']",line,string,"['line']","['M14','M15','M16']",1
 "['summary_flat','trace_flat','wafer_table']",step_id,number,"['step id']","[-3, 0, 13, 14]",0
-"['summary_flat','trace_flat']",param_name,string,"['parameter name','param name','parameters']","['PAR1_ABC','PAR2_AAA']",0
+"['summary_flat','trace_flat']",param_name,string,"['parameter name','param name','parameters','names of parameters']","['PAR1_ABC','PAR2_AAA']",0
 "['summary_flat','trace_flat']",param_alias,string,"['parameter alias','param alias']","['ABC123','BDSG3']",0
 "['summary_flat','trace_flat','wafer_table']",module_name,string,"['module name']","['QWEASD','BDSG3','ADSDDFB']",0
 "['summary_flat','trace_flat']",eqp_id,string,"['equipment id','eqp id','equipments']","['ABC123']",0

@@ -133,6 +133,7 @@ class QueryGenerator:
                     if col_type == 'bool':
                         col_type = 'string'
                         synonym_list = row['synonym_list'][1:]
+                        value_list = ''
                     elif col_type == 'number':
                         value_list = ', '.join([str(s) for s in sample_list])
                         synonym_list = row['synonym_list']

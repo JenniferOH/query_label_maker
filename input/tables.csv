@@ -1,4 +1,4 @@
 table,table_nat
-trace_flat,"['trace data','trace table']"
-summary_flat,"['summary table','summary data']"
+trace_flat,"['trace data', 'trace table']"
+summary_flat,"['summary table', 'summary data']"
 wafer_table,"['wafer table']"

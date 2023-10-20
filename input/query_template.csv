@@ -5,6 +5,7 @@ type,question,query
 "0","list {select_column_nat} {where_delimiter}{where_condition_nat} in {table_nat}","SELECT DISTINCT {select_column} FROM {table} WHERE {where_condition}"
 "0","show unique {select_column_nat} {where_delimiter}{where_condition_nat} in {table_nat}","SELECT DISTINCT {select_column} FROM {table} WHERE {where_condition}"
 "0","what are {select_column_nat} {where_delimiter}{where_condition_nat}","SELECT DISTINCT {select_column} FROM {table} WHERE {where_condition}"
+"0","what day had the most data {where_delimiter}{where_condition_nat}","SELECT dt FROM {table} WHERE {where_condition} GROUP BY dt ORDER BY COUNT(*)"
 
 "1","how many {count_column_nat} are there {where_delimiter}{where_condition_nat}","SELECT {count_format} FROM {table} WHERE {where_condition}"
 "1","how many {count_column_nat} do we have {where_delimiter}{where_condition_nat}","SELECT {count_format} FROM {table} WHERE {where_condition}"
@@ -15,7 +16,7 @@ type,question,query
 "2","what is {agg_function_nat} value of {agg_function_column_nat} for each {groupby_column_nat} {where_delimiter}{where_condition_nat}","SELECT {groupby_column}, {agg_function_column} FROM {table} WHERE {where_condition} GROUP BY {groupby_column}"
 "2","what is {agg_function_nat} of {agg_function_column_nat} for all {groupby_column_nat} {where_delimiter}{where_condition_nat}","SELECT {groupby_column}, {agg_function_column} FROM {table} WHERE {where_condition} GROUP BY {groupby_column}"
 "2","which {groupby_column_nat} has the most data {where_delimiter}{where_condition_nat}","SELECT {groupby_column} FROM {table} WHERE {where_condition} GROUP BY {groupby_column} ORDER BY COUNT(*)"
-
+"2","which {groupby_column_nat} has the most data {where_delimiter}{where_condition_nat}","SELECT {groupby_column} FROM {table} WHERE {where_condition} GROUP BY {groupby_column} ORDER BY COUNT(*)"
 
 "3","show top {limit_count} {orderby_column_nat} {where_delimiter}{where_condition_nat}","SELECT {orderby_column} FROM {table} WHERE {where_condition} ORDER BY {orderby_column} DESC LIMIT {limit_count}"
 "3","show top {orderby_column_nat} {where_delimiter}{where_condition_nat}","SELECT {orderby_column} FROM {table} WHERE {where_condition} ORDER BY {orderby_column} DESC LIMIT 1"
