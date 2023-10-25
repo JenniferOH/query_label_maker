@@ -49,12 +49,12 @@ class QueryGenerator:
             if '1' in template_type:    # count query
                 count_col_df = column_df[column_df.type == 'string'].sample(random.randint(1, 2))
                 count_column_nat_list = count_col_df.apply(lambda x: random.choice(x['synonym_list']), axis=1).tolist()
-                count_column_list = select_col_df.column.tolist()
+                count_column_list = count_col_df.column.tolist()
                 question = question.replace('{count_column_nat}', ', '.join(count_column_nat_list))
                 count_format = ''
-                for select_column in count_column_list:
-                    count_format += COUNT_FORMAT.replace('{count_column}', select_column)
-                    if select_column_list[-1] != select_column:
+                for count_col in count_column_list:
+                    count_format += COUNT_FORMAT.replace('{count_column}', count_col)
+                    if count_column_list[-1] != count_col:
                         count_format += ', '
                 query = query.replace('{count_format}', count_format)
 
