@@ -33,8 +33,12 @@ def main(args):
     # creates query and question for all columns and synonyms
     query_generator = QueryGenerator(columns, tables, where_t, query_t, agg_t, date_generator)
 
+    query_list = []
+    question_list = []
     for table in tables.table.unique():
-        query_list, question_list = query_generator.get_query_list(table)
+        querys, questions = query_generator.get_query_list(table, args.num_labels)
+        query_list.extend(querys)
+        question_list.extend(questions)
 
     # create input data for schema
     tables_list = []

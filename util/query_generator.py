@@ -18,7 +18,7 @@ class QueryGenerator:
         self.agg_temp = agg_temp
         self.date_generator = date_generator
 
-    def get_query_list(self, table):
+    def get_query_list(self, table, num_labels):
         query_list = []
         question_list = []
         column_df = self.col_df[self.col_df.table == table]
@@ -30,7 +30,7 @@ class QueryGenerator:
         col_count = len(column_df)
         print('\n>>>> table {}  columns: {}'.format(table, column_df.column.unique().tolist()))
 
-        for i in range(50):
+        for i in range(num_labels):
             template = self.query_temp.loc[i%len(self.query_temp)]
             template_type = template.type.astype(str)
             question = template.question
