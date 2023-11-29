@@ -51,7 +51,7 @@ def main(args):
     for idx, trow in tables.iterrows():
         for i, row in columns[columns.table == trow['table']].iterrows():
             column_names.append([1, row['column'].lower().replace('_', ' ')])
-            column_names.append([1, row['column']])
+            column_names_original.append([1, row['column']])
             column_types.append(TYPE_MAPPER[row['type']])
         table_names.append(trow['table_nat'][0])
         table_names_original.append(trow['table'])
@@ -60,7 +60,7 @@ def main(args):
         "column_names": column_names,
         "column_names_original": column_names_original,
         "column_types": column_types,
-        "db_id": "hive.temp",
+        "db_id": "o_tpani_cem",
         "foreign_keys": [],
         "primary_keys": [],
         "table_names": table_names,
@@ -72,7 +72,7 @@ def main(args):
     # create input data for question and query
     labels = []
     for query, question in zip(query_list, question_list):
-        labels.append({'question': question, 'query': query})
+        labels.append({'question': question, 'query': query, 'db_id': 'o_tpani_cem'})
     with open(args.result_labels_path, 'w') as f:
         json.dump(labels, f, indent=2)
 
