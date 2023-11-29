@@ -28,6 +28,9 @@ class QueryGenerator:
         assert 'date' in partition_column_df.type.unique(), 'table {} is missing date partition key!'.format(table)
         date_partition = partition_column_df[partition_column_df.type == 'date'].iloc[0].column
         col_count = len(column_df)
+        num_col_count = len(numeric_column_df)
+        max_cols = col_count if col_count < 5 else 5  # max select column count
+        max_num_cols = num_col_count if num_col_count < 3 else 3
         print('\n>>>> table {}  columns: {}'.format(table, column_df.column.unique().tolist()))
 
         for i in range(num_labels):
@@ -35,7 +38,6 @@ class QueryGenerator:
             template_type = template.type.astype(str)
             question = template.question
             query = template.query
-            max_cols = col_count if col_count < 10 else 10  # max select column count
 
             # pick random columns for 'select' part
             select_col_df = column_df.sample(random.randint(1, max_cols-1))
@@ -65,12 +67,12 @@ class QueryGenerator:
                 agg_function_nat = ', '.join(agg_func_nat_list)
 
                 # pick numeric columns for aggregation
-                agg_func_col_df = numeric_column_df.sample(random.randint(1, int(len(numeric_column_df)/2))+1)
+                agg_func_col_df = numeric_column_df.sample(random.randint(1, max_num_cols))
                 agg_function_column_nat = ', '.join(agg_func_col_df.apply(lambda x: random.choice(x['synonym_list']), axis=1).tolist())
                 agg_function_column_list = agg_func_col_df.column.tolist()
 
                 # re-pick columns which are not used for aggretation
-                groupby_col_df = column_df[~column_df.column.isin(agg_func_col_df)].sample(random.randint(1, max_cols - int(len(numeric_column_df)/2))+1)
+                groupby_col_df = column_df[~column_df.column.isin(agg_func_col_df.column)].sample(random.randint(1, max_num_cols - len(agg_func_col_df) + 1))
                 groupby_column_nat_list = groupby_col_df.apply(lambda x: random.choice(x['synonym_list']), axis=1).tolist()
                 groupby_column_list = groupby_col_df.column.tolist()
 
