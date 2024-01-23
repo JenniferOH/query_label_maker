@@ -6,12 +6,13 @@ WHERE_DELIMETER_BOOL = ['which ', 'that ']
 COUNT_FORMAT = 'COUNT ( DISTINCT {count_column} )'
 AGG_FORMAT = '{agg_function} ( {agg_column} )'
 AND_NAT = [' and ', ' , ']
+TABLE_TERM = ['daily', 'daily basis', 'hourly basis', 'hourly', 'weekly', 'monthly']
 
 
 class QueryGenerator:
 
     def __init__(self, col_df, table_df, where_temp, query_temp, agg_temp, date_generator):
-        self.col_df = col_df
+        self.col_df = col_df[col_df.partition_key > -1]
         self.table_df = table_df
         self.where_temp = where_temp
         self.query_temp = query_temp
@@ -57,7 +58,7 @@ class QueryGenerator:
                 for count_col in count_column_list:
                     count_format += COUNT_FORMAT.replace('{count_column}', count_col)
                     if count_column_list[-1] != count_col:
-                        count_format += ', '
+                        count_format += ' ,  '
                 query = query.replace('{count_format}', count_format)
 
             if '2' in template_type:    # aggregation(group by) query
@@ -67,7 +68,7 @@ class QueryGenerator:
                 agg_function_nat = ', '.join(agg_func_nat_list)
 
                 # pick numeric columns for aggregation
-                agg_func_col_df = numeric_column_df.sample(random.randint(1, max_num_cols))
+                agg_func_col_df = numeric_column_df.sample(random.randint(1, 2))
                 agg_function_column_nat = ', '.join(agg_func_col_df.apply(lambda x: random.choice(x['synonym_list']), axis=1).tolist())
                 agg_function_column_list = agg_func_col_df.column.tolist()
 
@@ -79,9 +80,9 @@ class QueryGenerator:
                 # make aggregation function calls with columns
                 agg_function_column = ''
                 for func in agg_func_list:
-                    agg_function_column += ', '.join([AGG_FORMAT.replace('{agg_function}', func).replace('{agg_column}', col) for col in agg_function_column_list])
+                    agg_function_column += ' ,  '.join([AGG_FORMAT.replace('{agg_function}', func).replace('{agg_column}', col) for col in agg_function_column_list])
                     if agg_func_list[-1] != func:
-                        agg_function_column += ', '
+                        agg_function_column += ' ,  '
 
                 question = question.replace('{agg_function_nat}', agg_function_nat)
                 question = question.replace('{agg_function_column_nat}', agg_function_column_nat)
@@ -104,6 +105,9 @@ class QueryGenerator:
 
             # pick random columns to use in 'where' part
             where_col_df = column_df.sample(random.randint(1, int(max_cols/2)))
+            # if there is no date, add one
+            if len(where_col_df[where_col_df.type == 'date']) < 1:
+                where_col_df = pd.concat([where_col_df, column_df[column_df.type == 'date'].sample(1)])
             # if there is date type, pick 1 and put date column to the end
             if len(where_col_df[where_col_df.type == 'date']) > 0:
                 where_col_df = pd.concat([where_col_df[where_col_df.type != 'date'], where_col_df[where_col_df.type == 'date'][:1]])
@@ -120,7 +124,7 @@ class QueryGenerator:
                     org_str, nat_str, where_cond_pk_str = self.date_generator.get_date_condition(table, row['column'], date_partition)
                     # remove 'and' in where condition if column is date partition key
                     if where_cond_nat_str != '' and row['partition_key'] == 1:
-                        where_cond_nat_str = where_cond_nat_str[:-5]
+                        where_cond_nat_str = where_cond_nat_str[:-len(AND_NAT[i%2])]
                     where_cond_str += org_str
                     where_cond_nat_str += nat_str
                     where_deli = random.choice(WHERE_DELIMETER)
@@ -135,7 +139,7 @@ class QueryGenerator:
                     if col_type == 'bool':
                         col_type = 'string'
                         synonym_list = row['synonym_list'][1:]
-                        value_list = ''
+                        value_list = 'y'
                     elif col_type == 'number':
                         value_list = ', '.join([str(s) for s in sample_list])
                         synonym_list = row['synonym_list']
@@ -166,9 +170,16 @@ class QueryGenerator:
                 elif len(where_col_df) == 1:
                     where_deli = ''
 
-            question = question.replace('{where_condition_nat}', where_cond_nat_str)\
-                    .replace('{where_delimiter}', where_deli)\
-                    .replace('{table_nat}', random.choice(self.table_df[self.table_df.table == table].table_nat.values[0]))
+            ### TODO: tempporary added for table nat
+            if [i%2] == 0:
+                question = question.replace('{where_condition_nat}', where_cond_nat_str)\
+                        .replace('{where_delimiter}', where_deli)\
+                        .replace('{table_nat}', random.choice(TABLE_TERM) + ' ' + random.choice(self.table_df[self.table_df.table == table].table_nat.values[0]))
+            else:
+                question = question.replace('{where_condition_nat}', where_cond_nat_str)\
+                        .replace('{where_delimiter}', where_deli)\
+                        .replace('{table_nat}', random.choice(self.table_df[self.table_df.table == table].table_nat.values[0]) +  ' ' + random.choice(TABLE_TERM))
+
             query = query.replace('{where_condition}', where_cond_str)
 
             print(question)

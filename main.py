@@ -50,8 +50,8 @@ def main(args):
 
     for idx, trow in tables.iterrows():
         for i, row in columns[columns.table == trow['table']].iterrows():
-            column_names.append([1, row['column'].lower().replace('_', ' ')])
-            column_names_original.append([1, row['column']])
+            column_names.append([idx, row['column'].lower().replace('_', ' ')])
+            column_names_original.append([idx, row['column']])
             column_types.append(TYPE_MAPPER[row['type']])
         table_names.append(trow['table_nat'][0])
         table_names_original.append(trow['table'])
