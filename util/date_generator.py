@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 import random
+import calendar
 
 RANGE_DELIMITER = ['~', 'and', 'to']
 BASE_DELIMITER = '~'
@@ -43,7 +44,7 @@ class DateGenerator:
         target_dtcol = self.dtcol_temp[self.dtcol_temp.table == table]
         assert len(target_dtcol) > 0, "column '{}' in table '{}' must be in datecolumn template!".format(dt_col, table)
         target_dtcol = target_dtcol[target_dtcol['column'] == dt_col]
-        assert len(target_dtcol) > 0, "column '{}' in table '{}' must be in datecolumn template!".format(dt_col, table)
+        assert len(target_dtcol) > 0, "column '{}' in column '{}' must be in datecolumn template!".format(dt_col, table)
         target_col = self.columns[self.columns['column'] == dt_col]
         assert len(target_col) > 0, "column '{}' must be in column template!".format(dt_part_key)
         parkey_dtcol = self.dtcol_temp[self.dtcol_temp['column'] == dt_part_key]
@@ -68,16 +69,27 @@ class DateGenerator:
         random_day = datetime.now() - timedelta(int(random.random() * 2 * 30 * 12), hours=int(random.random() * 24), minutes=int(random.random() * 60))
 
         # get range datetime condition
-        if range or force_range:
-            random_day2 = random_day + timedelta(days=int(random.random() * 10 + 1), hours=int(random.random() * 24), minutes=int(random.random() * 60))
+        if range > 0 or force_range:
+            if range == 1:
+                random_day2 = random_day + timedelta(days=int(random.random() * 10 + 1), hours=int(random.random() * 24), minutes=int(random.random() * 60))
+            else:
+                random_day = datetime(random_day.year, random_day.month, 1)
+                random_day2 = datetime(random_day.year, random_day.month, calendar.monthrange(random_day.year, random_day.month)[1])
 
             # construct date range condition nat question
             nat_delimiter = nat_format.find(BASE_DELIMITER)
-            nat_range_dt1 = nat_format[:nat_delimiter]
-            nat_range_dt2 = nat_format[nat_delimiter:]
+            if nat_delimiter > 0:
+                nat_range_dt1 = nat_format[:nat_delimiter]
+                nat_range_dt2 = nat_format[nat_delimiter:]
+            else:
+                nat_range_dt1 = nat_format
+                nat_range_dt2 = nat_format
             nat_range_dt1 = self._daymonth_formatter(random_day, nat_range_dt1)
             nat_range_dt2 = self._daymonth_formatter(random_day2, nat_range_dt2)
-            date_nat = nat_range_dt1 + nat_range_dt2
+            if range == 1:
+                date_nat = nat_range_dt1 + nat_range_dt2
+            else:
+                date_nat = nat_range_dt1
             if is_partition:
                 date_nat = date_nat.replace('{date_column_nat}', '')
             else:
@@ -105,8 +117,8 @@ class DateGenerator:
             date_col_nat = random.choice(col_nat_list)
             if is_partition:
                 date_col_nat = ''
-            date_nat = self._daymonth_formatter(random_day, nat_format).replace('{date_column_nat}', date_col_nat)
-            date_org = query_format.replace('{date_column}', dt_col).replace('{datetime}', datetime.strftime(random_day, col_format))
+            date_nat = self._daymonth_formatter(random_day, nat_format).replace('{date_column_nat}', date_col_nat).replace('{rand_hour}', str(random_day.hour))
+            date_org = query_format.replace('{date_column}', dt_col).replace('{datetime}', datetime.strftime(random_day, col_format)).replace('{rand_hour}', str(random_day.hour))
             partition_org = pk_query_format.replace('{date_column}', dt_part_key).replace('{datetime}', datetime.strftime(random_day, pk_col_format))
 
         return date_org, date_nat, partition_org
