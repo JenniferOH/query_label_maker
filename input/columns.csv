@@ -1,34 +1,52 @@
-table_list,column,type,synonym_list,sample_list,partition_key
-"['summary_flat','trace_flat','wafer_table']",dt,date,"['date']","['2023-01-01-','2023-08-01','2023-12-31']",1
-"['summary_flat','trace_flat']",fab,string,"['fab']","['M14','M15','M16']",1
-"['wafer_table']",line,string,"['line']","['M14','M15','M16']",1
-"['summary_flat','trace_flat','wafer_table']",step_id,number,"['step id']","[-3, 0, 13, 14]",0
-"['summary_flat','trace_flat']",param_name,string,"['parameter name','param name','parameters','names of parameters']","['PAR1_ABC','PAR2_AAA']",0
-"['summary_flat','trace_flat']",param_alias,string,"['parameter alias','param alias']","['ABC123','BDSG3']",0
-"['summary_flat','trace_flat','wafer_table']",module_name,string,"['module name']","['QWEASD','BDSG3','ADSDDFB']",0
-"['summary_flat','trace_flat']",eqp_id,string,"['equipment id','eqp id','equipments']","['ABC123']",0
-"['summary_flat','trace_flat']",oper_id,string,"['operation id','oper id']","['DSA_3123','ASD_1324','ASD_1323','BAD_321']",0
-"['summary_flat','trace_flat','wafer_table']",lot_id,string,"['lot id']","['AAA','CCC','CCC']",0
-"['summary_flat','trace_flat']",lot_cd,string,"['lot cd','lot code']","['AAA','CCC','CCC']",0
-"['trace_flat']",param_value,number,"['param value','parameter value','param val','parameter val']","[0.0, 1.234, 5.345]",0
-"['trace_flat']",target,string,"['target']","['GOF_3','AAA_4']",0
-"['trace_flat']",ucl,number,"['upper control limit']","[0.0,1.332, 10.0]",0
-"['trace_flat']",lcl,number,"['lower control limit']","[0.0,1.332]",0
-"['trace_flat']",usl,number,"['upper specification limit']","[0.0,1.332,20.0]",0
-"['trace_flat']",lsl,number,"['lower specification limit']","[0.0,1.332]",0
-"['trace_flat']",ts,date,"['timestamp']","['2023-01-01 00:00:00']",0
-"['trace_flat']",merge_yn,bool,"['merged']","['Y','N']",0
-"['summary_flat','wafer_table']",min_val,number,"['min value','min val']","[0.0, 1.0, 3.345]",0
-"['summary_flat','wafer_table']",max_val,number,"['max value','max val']","[0.0, 1.0, 8.345, 100.0]",0
-"['summary_flat','wafer_table']",mean_val,number,"['mean value','mean val']","[0.0, 2.0, 4.345, 10.0]",0
-"['summary_flat']",median_val,number,"['median value','median val']","[0.0, 3.0, 1.345, 10.0]",0
-"['summary_flat']",count_val,number,"['count value','count val']","[0.0, 3.0, 10.0, 1000.0]",0
-"['summary_flat']",p95_val,number,"['p95 value','p 95 val','p95 val','probability 95 value','p 95% val']","[0.0, 3.54, 1.32, 10.0]",0
-"['summary_flat']",p5_val,number,"['p5 value','p 5 val','p5 val','probability 5 value','p 5% val']","[0.0, 3.54, 1.32, 5.0]",0
-"['summary_flat']",start_time,date,"['start time','starts']","['2023-01-01 00:00:00']",0
-"['summary_flat']",end_time,date,"['end time','ends']","['2023-01-01 00:00:00']",0
-"['summary_flat']",etl_start_dtts,date,"['etl start datetime','etl start day','etl start']","['20230101','20231231']",0
-"['summary_flat']",etl_end_dtts,date,"['etl end datetime','etl end day','etl start']","['20230101','20231231']",0
-"['wafer_table']",rwk_yn,bool,"['reworked']","['Y','N']",0
-"['wafer_table']",produce_id,string,"['produce id']","['A3123','B32']",0
-"['wafer_table']",merge_grp_id,string,"['merge group id','merge group']","['A3123','B32']",0
+table_list,column,type,column_nat,sample_list,partition_key
+"['bran_1d','area_1d','cell_1d']",dt,date,"['date', 'day']","['20230101','20230801','20231231']",1
+"['bran_1d','area_1d','cell_1d']",hh,date,"['hour']","['12','01','20']",-1
+
+"['bran_1d','area_1d','cell_1d']",week_no,string,"['week number', 'week no']","['1','3','7']",0
+"['bran_1d','area_1d','cell_1d']",week_nm,string,"['week name', 'week nm']","['Thur','Wed','Sat']",0
+"['bran_1d','area_1d','cell_1d']",wked_yn,bool,"['weekend', 'weekend yn', 'on weekend']","['y','n']",0
+"['bran_1d','area_1d','cell_1d']",hday_yn,bool,"['holiday', 'holiday yn', 'on holiday']","['y','n']",0
+"['bran_1d','area_1d','cell_1d']",hdv_cei,number,"['hdv cei']","[0.0, 1.2, 10.0]",0
+"['bran_1d','area_1d','cell_1d']",data_cei,number,"['data cei']","[0.0, 10.2, 20.0]",0
+"['bran_1d','area_1d','cell_1d']",wcdr_cei,number,"['wcdr cei', 'csfb cei']","[0.0, 10.2, 100.0]",0
+"['bran_1d','area_1d','cell_1d']",hdv_cfi,number,"['hdv cfi']","[0.0, 10.2, 100.0]",0
+"['bran_1d','area_1d','cell_1d']",data_cfi,number,"['data cfi']","[0.0, 10.2, 100.0]",0
+"['bran_1d','area_1d','cell_1d']",data_nei,number,"['data nei']","[0.0, 10.2, 100.0]",0
+"['bran_1d','area_1d','cell_1d']",data_sei,number,"['data sei']","[0.0, 10.2, 100.0]",0
+
+"['bran_1d','area_1d','cell_1d']",hdv_cfi_qoe1,number,"['hdv cfi qoe1', 'hdv cei attachment quality index', 'hdv quality']","[0.0, 10.2, 100.0]",0
+"['bran_1d','area_1d','cell_1d']",hdv_cfi_qoe1_qos1,number,"['hdv cfi qoe1 qos1', 'hdv register success index', 'hdv register success']","[0.0, 10.2, 100.0]",0
+"['bran_1d','area_1d','cell_1d']",hdv_cfi_qoe1_qos2,number,"['hdv cfi qoe1 qos2', 'hdv setup success index', 'hdv setup success']","[0.0, 10.2, 100.0]",0
+"['bran_1d','area_1d','cell_1d']",hdv_cfi_qoe1_qos3,number,"['hdv cfi qoe1 qos3', 'hdv data npr index', 'hdv data npr']","[0.0, 10.2, 100.0]",0
+"['bran_1d','area_1d','cell_1d']",hdv_cfi_qoe1_qos4,number,"['hdv cfi qoe1 qos4', 'hdv 3g transition time index', 'hdv 3g transition time']","[0.0, 10.2, 100.0]",0
+"['bran_1d','area_1d','cell_1d']",hdv_cfi_qoe1_qos5,number,"['hdv cfi qoe1 qos5', 'hdv attach success index', 'hdv attach success']","[0.0, 10.2, 100.0]",0
+"['bran_1d','area_1d','cell_1d']",data_cfi_qoe1,number,"['data cfi qoe1', 'data cei qoe1 index']","[0.0, 10.2, 100.0]",0
+"['bran_1d','area_1d','cell_1d']",data_cfi_qoe1_qos1,number,"['data cfi qoe1 qos1', 'data attach quality index', 'data attach quality']","[0.0, 10.2, 100.0]",0
+"['bran_1d','area_1d','cell_1d']",data_cfi_qoe1_qos2,number,"['data cfi qoe1 qos2', 'data rtt response time index', 'data rtt response time']","[0.0, 10.2, 100.0]",0
+"['bran_1d','area_1d','cell_1d']",data_cfi_qoe1_qos3,number,"['data cfi qoe1 qos3', 'data dns success index', 'data dns success']","[0.0, 10.2, 100.0]",0
+"['bran_1d','area_1d','cell_1d']",data_cfi_qoe1_qos4,number,"['data cfi qoe1 qos4', 'data dns retry index', 'data dns retry']","[0.0, 10.2, 100.0]",0
+"['bran_1d','area_1d','cell_1d']",data_cfi_qoe1_qos5,number,"['data cfi qoe1 qos5', 'data http success index', 'data http success']","[0.0, 10.2, 100.0]",0
+"['bran_1d','area_1d','cell_1d']",data_cfi_qoe1_qos6,number,"['data cfi qoe1 qos6', 'data attach success index', 'data attach success']","[0.0, 10.2, 100.0]",0
+"['bran_1d','area_1d','cell_1d']",hdv_cfi_complete_cnt,number,"['hdv cfi complete count', 'hdv cei call complete count', 'hdv complete count']","[0.0, 10.2, 100.0]",0
+
+"['bran_1d','area_1d','cell_1d']",hdv_cfi_drop_cnt,number,"['hdv cfi drop count', 'hdv cei call drop count', 'hdv drop count']","[0.0, 10.2, 100.0]",0
+"['bran_1d','area_1d','cell_1d']",data_cfi_call_attempt_cnt,number,"['data cfi call attempt count', 'data cei call attempt count', 'data call attempt count']","[0.0, 10.2, 100.0]",0
+"['bran_1d','area_1d','cell_1d']",data_cfi_call_succ_cnt,number,"['data cfi call success count', 'data cei call success count', 'data call success count']","[0.0, 10.2, 100.0]",0
+
+"['bran_1d','cell_1d']",branch_id,string,"['branch id']","['1100', '1103', '1111']",0
+"['bran_1d','cell_1d']",branch_name,string,"['branch name', 'branch']","['전국', '수도권Infra', '중부Infra']",0
+"['bran_1d','cell_1d']",city_id,string,"['city id']","['11', '13', '11']",0
+"['bran_1d','cell_1d']",city_name,string,"['city name', 'city']","['경남', '울산', '대구']",0
+"['bran_1d','cell_1d']",gu_id,string,"['gu id', 'district id']","['11', '13', '11']",0
+"['bran_1d','cell_1d']",gu_name,string,"['gu name', 'gu', 'district name', 'district']","['속초시', '수원시', '성남시']",0
+"['bran_1d','cell_1d']",team_id,string,"['team id']","['11', '13', '11']",0
+"['bran_1d','cell_1d']",team_name,string,"['team', 'team name']","['팀이름', '팀1', '팀2']",0
+"['bran_1d','cell_1d']",company_id,string,"['company id']","['11', '13', '11']",0
+"['bran_1d','cell_1d']",company_name,string,"['company', 'company name']","['회사명', '회사명1', '회사명2']",0
+
+"['cell_1d']",enb_cell_id,string,"['enb cell id', 'enb cell']","['11', '13', '11']",0
+"['cell_1d']",cell_id,string,"['cell id', 'cell_1d']","['1332d', '4432g', 'd3']",0
+"['cell_1d']",cell_latitude,number,"['cell latitude', 'latitude']","[132.43, 543.1, 104.2]",0
+"['cell_1d']",cell_longitude,number,"['cell longitude', 'longitude']","[132.43, 543.1, 104.2]",0
+"['cell_1d']",cell_ltt,number,"['cell lttd']","[132.43, 543.1, 104.2]",0
+"['cell_1d']",cell_ltd,number,"['cell ltd']","[132.43, 543.1, 104.2]",0

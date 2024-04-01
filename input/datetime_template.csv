@@ -1,15 +1,23 @@
 query_format,nat_format,type,range
-"{date_column} = '{datetime}'","{date_column_nat} in %d %B %Y",0,0
-"{date_column} = '{datetime}'","{date_column_nat} in %d %b %Y",0,0
-"{date_column} = '{datetime}'","{date_column_nat} in %B %d %Y",0,0
-"{date_column} = '{datetime}'","{date_column_nat} in %Y/%m/%d",0,0
-"{date_column} = '{datetime}'","{date_column_nat} in %Y-%m-%d",0,0
-"{date_column} BETWEEN '{datetime}' AND '{datetime}'","{date_column_nat} in %Y-%m-%d ~ %Y-%m-%d",0,1
-"{date_column} BETWEEN '{datetime}' AND '{datetime}'","{date_column_nat} in %Y between %m/%d ~ %m/%d",0,1
-"{date_column} BETWEEN '{datetime}' AND '{datetime}'","{date_column_nat} between %Y-%m-%d ~ %Y-%m-%d",0,1
-"{date_column} BETWEEN '{datetime}' AND '{datetime}'","{date_column_nat} between %Y-%m-%d ~ %Y-%m-%d",0,1
-"{date_column} = CAST('{datetime}' AS TIMESTAMP)","{date_column_nat} at %Y-%m-%d %H:%M:%S",1,0
-"{date_column} = CAST('{datetime}' AS TIMESTAMP)","{date_column_nat} in %Y-%m-%d %H:%M:%S",1,0
-"{date_column} BETWEEN CAST('{datetime}' AS TIMESTAMP) AND CAST('{datetime}' AS TIMESTAMP)","{date_column_nat} in %Y-%m-%d between %H:%M:%S ~ %H:%M:%S",1,1
-"{date_column} BETWEEN CAST('{datetime}' AS TIMESTAMP) AND CAST('{datetime}' AS TIMESTAMP)","{date_column_nat} at %H:%M:%S ~ %H:%M:%S in %Y-%m-%d ",1,1
-"{date_column} BETWEEN CAST('{datetime}' AS TIMESTAMP) AND CAST('{datetime}' AS TIMESTAMP)","{date_column_nat} in between %Y-%m-%d %H:%M:%S ~ %Y-%m-%d %H:%M:%S",1,1
+"{date_column} = '{datetime}'","%d %B %Y",0,0
+"{date_column} = '{datetime}'","{date_column_nat} %d %b %Y",0,0
+"{date_column} = '{datetime}'","{date_column_nat} %B %d %Y",0,0
+"{date_column} = '{datetime}'","{date_column_nat} %Y/%m/%d",0,0
+"{date_column} = '{datetime}'","{date_column_nat} %Y-%m-%d",0,0
+"{date_column} = '{datetime}'","{date_column_nat} %Y-%m-%d에",0,0
+"{date_column} = '{datetime}' AND hh = '%H'","{date_column_nat} %Y-%m-%d {rand_hour}시",0,0
+"{date_column} = '{datetime}' AND hh = '%H'","{date_column_nat} %Y-%m-%d at {rand_hour}시",0,0
+"{date_column} = '{datetime}' AND hh = '%H'","{date_column_nat} %Y-%m-%d %H시",0,0
+"{date_column} = '{datetime}' AND hh = '%H'","{date_column_nat} %Y-%m-%d %H:00",0,0
+"{date_column} BETWEEN '{datetime}' AND '{datetime}'","%Y-%m-%d ~ %Y-%m-%d 사이에",0,1
+"{date_column} BETWEEN '{datetime}' AND '{datetime}'","%Y년 %m/%d ~ %m/%d",0,1
+"{date_column} BETWEEN '{datetime}' AND '{datetime}'","{date_column_nat}이 %Y-%m-%d ~ %Y-%m-%d 사이인",0,1
+"{date_column} BETWEEN '{datetime}' AND '{datetime}'","{date_column_nat}가 %Y-%m-%d ~ %Y-%m-%d 사이",0,1
+"{date_column} = CAST('{datetime}' AS TIMESTAMP)","{date_column_nat}이 %Y-%m-%d %H:%M:%S",1,0
+"{date_column} BETWEEN CAST('{datetime}' AS TIMESTAMP) AND CAST('{datetime}' AS TIMESTAMP)","{date_column_nat}가 %Y-%m-%d 이고 %H:%M:%S ~ %H:%M:%S 사이",1,1
+"{date_column} BETWEEN CAST('{datetime}' AS TIMESTAMP) AND CAST('{datetime}' AS TIMESTAMP)","{date_column_nat}이 %H:%M:%S ~ %H:%M:%S 사이 날짜 %Y-%m-%d ",1,1
+"{date_column} BETWEEN CAST('{datetime}' AS TIMESTAMP) AND CAST('{datetime}' AS TIMESTAMP)","{date_column_nat}가 %Y-%m-%d %H:%M:%S ~ %Y-%m-%d %H:%M:%S",1,1
+"{date_column} BETWEEN CAST('{datetime}' AS TIMESTAMP) AND CAST('{datetime}' AS TIMESTAMP)","{date_column_nat}이 %Y-%m-%d %H ~ %Y-%m-%d %H시",1,1
+"{date_column} BETWEEN '{datetime}' AND '{datetime}'","%Y %B",0,2
+"{date_column} BETWEEN '{datetime}' AND '{datetime}'","%b",0,2
+"{date_column} BETWEEN '{datetime}' AND '{datetime}'","%Y-%m",0,2

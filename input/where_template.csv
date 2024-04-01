@@ -1,25 +1,44 @@
-where_nat,where,type
-{column_nat} is '{value}',{column}  =  '{value}',string
-{column_nat} not '{value}',{column}  !=  '{value}',string
-{column_nat} is {value},{column}  =  {value},number
-{column_nat} not {value},{column}  !=  {value},number
-{column_nat} larger than {value},{column}  >  {value},number
-{column_nat} larger or same as {value},{column}  >=  {value},number
-{column_nat} higher than {value},{column}  >  {value},number
-{column_nat} higher or equal to {value},{column}  >=  {value},number
-{column_nat} lower than {value},{column}  <  {value},number
-{column_nat} lower or equal to {value},{column}  <=  {value},number
-{column_nat} smaller than {value},{column}  <  {value},number
-{column_nat} smaller or same as {value},{column}  <=  {value},number
-{column_nat} is between {value_range1} ~ {value_range2},{column} BETWEEN {value_range1} AND {value_range2},number
-{column_nat} is {value_range1} ~ {value_range2},{column} BETWEEN {value_range1} AND {value_range2},number
-{column_nat} is not null,{column} IS NOT NULL,all
-{column_nat} is null,{column} IS NULL,all
-{column_nat} is empty,{column}  =  '',string
-{column_nat} is not empty,{column}  !=  '',string
-{column_nat} is in ({value_list}),{column} in ({value_list}),all
-{column_nat} is one of {value_list},{column} in ({value_list}),all
-were {column_nat},{column} = 'Y',bool
-are {column_nat},{column} = 'Y',bool
-were not {column_nat},{column} = 'N',bool
-are not {column_nat},{column} = 'N',bool
+where_nat,where,type,last
+{column_nat}{josa} {value}이고,{column} = '{value}',string,0
+{column_nat}{josa} {value}{josa} 아니고,{column} != '{value}',string,0
+{column_nat} 값이 {value},{column} = {value},number,0
+{column_nat} 값이 {value}{josa} 아니고,{column} != {value},number,0
+{column_nat}{josa} {value} 보다 크고,{column} > {value},number,0
+{column_nat}{josa} {value} 이상이고,{column} >= {value},number,0
+{column_nat} 값이 {value} 초과이고,{column} > {value},number,0
+{column_nat}{josa} {value} 보다 크거나 같고,{column} >= {value},number,0
+{value} 보다 작은 {column_nat},{column} < {value},number,0
+{value} 보다 큰 {column_nat},{column} > {value},number,0
+{column_nat}{josa} {value} 이하이고,{column} <= {value},number,0
+{column_nat}{josa} {value} 미만이고,{column} < {value},number,0
+{column_nat} 값이 {value} 보다 작거나 같고,{column} <= {value},number,0
+{column_nat} 값이 {value_range1} ~ {value_range2},{column} BETWEEN {value_range1} AND {value_range2},number,0
+{column_nat}{josa} {value_range1} ~ {value_range2} 사이이고,{column} BETWEEN {value_range1} AND {value_range2},number,0
+{column_nat} null이 아니고,{column} IS NOT NULL,all,0
+{column_nat} 값이 null이고,{column} IS NULL,all,0
+{column_nat}{josa} 빈 값이고,{column} = '',string,0
+{column_nat}{josa} 빈 값이 아니고,{column} != '',string,0
+{column_nat}{josa} null이거나 빈 값이 아니고,{column} IS NOT NULL AND {column} != '',string,0
+{column_nat}이고,{column} = 'Y',bool,0
+{column_nat}{josa} 아니고,{column} = 'N',bool,0
+
+{column_nat}{josa} {value}인,{column} = '{value}',string,1
+{column_nat}{josa} {value}{josa} 아닌,{column} != '{value}',string,1
+{column_nat} 값이 {value}인,{column} = {value},number,1
+{column_nat} 값이 {value}{josa} 아닌,{column} != {value},number,1
+{column_nat}{josa} {value} 보다 큰,{column} > {value},number,1
+{column_nat}{josa} {value} 이상인,{column} >= {value},number,1
+{column_nat} 값이 {value} 초과인,{column} > {value},number,1
+{column_nat}{josa} {value} 보다 크거나 같은,{column} >= {value},number,1
+{column_nat}{josa} {value} 이하인,{column} <= {value},number,1
+{column_nat}{josa} {value} 미만인,{column} < {value},number,1
+{column_nat} 값이 {value} 보다 작거나 같은,{column} <= {value},number,1
+{column_nat} 값이 {value_range1} ~ {value_range2} 사이인,{column} BETWEEN {value_range1} AND {value_range2},number,1
+{column_nat}{josa} {value_range1} ~ {value_range2} 사이인,{column} BETWEEN {value_range1} AND {value_range2},number,1
+{column_nat}{josa} null이 아닌,{column} IS NOT NULL,all,1
+{column_nat} 값이 null인,{column} IS NULL,all,1
+{column_nat}{josa} 빈 값인,{column} = '',string,1
+{column_nat}{josa} 빈 값이 아닌,{column} != '',string,1
+{column_nat}{josa} null이거나 빈 값이 아닌,{column} IS NOT NULL AND {column} != '',string,1
+{column_nat}인,{column} = 'Y',bool,1
+{column_nat}{josa} 아닌,{column} = 'N',bool,1

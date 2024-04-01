@@ -1,0 +1,146 @@
+database,table,table_nat
+o_tpani_cem,area_1d,4G 전국 CEI 일단위 집계 
+o_tpani_cem,area_1h,4G 전국 CEI 시간단위 집계 
+o_tpani_cem,area_age_1d,4G 전국 연령대별 CEI 일단위 집계 
+o_tpani_cem,area_alias_1d,4G 전국 펫네임별 CEI 일단위 집계 
+o_tpani_cem,area_alias_1h,4G 전국 펫네임별 CEI 시간단위 집계 
+o_tpani_cem,area_alias_fw_1d,4G 전국 펫네임/펌웨어별 CEI 일단위 집계 
+o_tpani_cem,area_alias_fw_1h,4G 전국 펫네임/펌웨어별 CEI 시간단위 집계 
+o_tpani_cem,area_chg_1d,4G 전국 요금제별 CEI 일단위 집계 
+o_tpani_cem,bran_1d,4G SKT 본부별 CEI 일단위 집계 
+o_tpani_cem,bran_1h,4G SKT 본부별 CEI 시간단위 집계 
+o_tpani_cem,bran_1m,4G SKT 본부별 CEI 월단위 집계 
+o_tpani_cem,bran_1w,4G SKT 본부별 CEI 주단위 집계 
+o_tpani_cem,bran_alias_1d,4G SKT 본부별/펫네임별 CEI 일단위 집계 
+o_tpani_cem,bran_alias_fw_1d,4G SKT 본부별/펫네임/펌웨어별 CEI 일단위 집계 
+o_tpani_cem,bran_alias_fw_1h,4G SKT 본부별/펫네임/펌웨어별 CEI 시간단위 집계 
+o_tpani_cem,cell_1d,4G 쎌별 CEI 일단위 집계 
+o_tpani_cem,cell_1h,4G 쎌별 CEI 시간단위 집계 
+o_tpani_cem,cell_1m,4G 쎌별 CEI 월단위 집계 
+o_tpani_cem,cell_1w,4G 쎌별 CEI 주단위 집계 
+o_tpani_cem,city_1d,4G 시/도별 CEI 일단위 집계 
+o_tpani_cem,city_1h,4G 시/도별 CEI 시간단위 집계 
+o_tpani_cem,city_1m,4G 시/도별 CEI 월단위 집계 
+o_tpani_cem,city_1w,4G 시/도별 CEI 주단위 집계 
+o_tpani_cem,comp_1d,4G ONS 본부별 CEI 일단위 집계 
+o_tpani_cem,comp_1h,4G ONS 본부별 CEI 시간단위 집계 
+o_tpani_cem,comp_1m,4G ONS 본부별 CEI 월단위 집계 
+o_tpani_cem,comp_1w,4G ONS 본부별 CEI 주단위 집계 
+o_tpani_cem,dong_1d,4G 동별 CEI 일단위 집계 
+o_tpani_cem,dong_1h,4G 동별 CEI 시간단위 집계 
+o_tpani_cem,dong_1m,4G 동별 CEI 월단위 집계 
+o_tpani_cem,dong_1w,4G 동별 CEI 주단위 집계 
+o_tpani_cem,ems_1d,4G EMS별 CEI 일단위 집계 
+o_tpani_cem,ems_1h,4G EMS별 CEI 시간단위 집계 
+o_tpani_cem,enb_1d,4G 기지국별 CEI 일단위 집계 
+o_tpani_cem,enb_1h,4G 기지국별 CEI 시간단위 집계 
+o_tpani_cem,enb_1m,4G 기지국별 CEI 월단위 집계 
+o_tpani_cem,enb_1w,4G 기지국별 CEI 주단위 집계 
+o_tpani_cem,enb_alias_1d,4G 기지국/펫네임별 CEI 시간단위 집계 
+o_tpani_cem,gu_1d,4G 구/군별 CEI 일단위 집계 
+o_tpani_cem,gu_1h,4G 구/군별 CEI 시간단위 집계 
+o_tpani_cem,gu_1m,4G 구/군별 CEI 월단위 집계 
+o_tpani_cem,gu_1w,4G 구/군별 CEI 주단위 집계 
+o_tpani_cem,imsi_area_1d,4G IMSI/전국 CEI 일단위 집계 
+o_tpani_cem,imsi_area_1h,4G IMSI/전국 CEI 시간단위 집계 
+o_tpani_cem,imsi_bran_1d,4G IMSI/본부별 CEI 일단위 집계 
+o_tpani_cem,imsi_bran_1h,4G IMSI/본부별 CEI 시간단위 집계 
+o_tpani_cem,imsi_cell_1d,4G IMSI/쎌별 CEI 일단위 집계 
+o_tpani_cem,imsi_cell_1h,4G IMSI/쎌별 CEI 시간단위 집계 
+o_tpani_cem,imsi_enb_1d,4G IMSI/기지국별 CEI 일단위 집계 
+o_tpani_cem,imsi_enb_1h,4G IMSI/기지국별 CEI 시간단위 집계 
+o_tpani_cem,mme_1d,4G MME별 CEI 일단위 집계 
+o_tpani_cem,mme_1h,4G MME별 CEI 시간단위 집계 
+o_tpani_cem,part_1d,4G ONS 품질개선팀별 CEI 일단위 집계 
+o_tpani_cem,part_1h,4G ONS 품질개선팀별 CEI 시간단위 집계 
+o_tpani_cem,part_1m,4G ONS 품질개선팀별 CEI 월단위 집계 
+o_tpani_cem,part_1w,4G ONS 품질개선팀별 CEI 주단위 집계 
+o_tpani_cem,part_alias_1d,4G ONS 품질개선팀/펫네임별 CEI 일단위 집계 
+o_tpani_cem,pgw_1d,4G PGW별 CEI 일단위 집계 
+o_tpani_cem,pgw_1h,4G PGW별 CEI 시간단위 집계 
+o_tpani_cem,sgw_1d,4G SGW별 CEI 일단위 집계 
+o_tpani_cem,sgw_1h,4G SGW별 CEI 시간단위 집계 
+o_tpani_cem,team_1d,4G SKT AI팀별 CEI 일단위 집계 
+o_tpani_cem,team_1h,4G SKT AI팀별 CEI 시간단위 집계 
+o_tpani_cem,team_1m,4G SKT AI팀별 CEI 월단위 집계 
+o_tpani_cem,team_1w,4G SKT AI팀별 CEI 주단위 집계 
+o_tpani_cem5g,area_age_1d,5G 전국 연령대별 CEI 일단위 집계 
+o_tpani_cem5g,area_alias_1d,5G 전국 펫네임별 CEI 일단위 집계 
+o_tpani_cem5g,area_alias_1h,5G 전국 펫네임별 CEI 시간단위 집계 
+o_tpani_cem5g,area_alias_fw_1d,5G 전국 펫네임/펌웨어별 CEI 일단위 집계 
+o_tpani_cem5g,area_alias_fw_1h,5G 전국 펫네임/펌웨어별 CEI 시간단위 집계 
+o_tpani_cem5g,area_chg_1d,5G 요금제별 CEI 일단위 집계 
+o_tpani_cem5g,area_mno_1d,5G 전국 CEI 일단위 집계 
+o_tpani_cem5g,area_mno_1h,5G 전국 CEI 시간단위 집계 
+o_tpani_cem5g,bran_alias_1d,5G SKT 본부/펫네임별 CEI 일단위 집계 
+o_tpani_cem5g,bran_alias_fw_1d,5G SKT 본부/펫네임/펌웨어별 CEI 일단위 집계 
+o_tpani_cem5g,bran_alias_fw_1h,5G SKT 본부/펫네임/펌웨어별 CEI 시간단위 집계 
+o_tpani_cem5g,bran_mno_1d,5G SKT 본부별 CEI 일단위 집계 
+o_tpani_cem5g,bran_mno_1h,5G SKT 본부별 CEI 시간단위 집계 
+o_tpani_cem5g,bran_mno_1m,5G SKT 본부별 CEI 월단위 집계 
+o_tpani_cem5g,bran_mno_1w,5G SKT 본부별 CEI 주단위 집계 
+o_tpani_cem5g,cell_mno_1d,5G 쎌별 CEI 일단위 집계 
+o_tpani_cem5g,cell_mno_1h,5G 쎌별 CEI 시간단위 집계 
+o_tpani_cem5g,cell_mno_1m,5G 쎌별 CEI 월단위 집계 
+o_tpani_cem5g,cell_mno_1w,5G 쎌별 CEI 주단위 집계 
+o_tpani_cem5g,city_mno_1d,5G 시/도별 CEI 일단위 집계 
+o_tpani_cem5g,city_mno_1h,5G 시/도별 CEI 시간단위 집계 
+o_tpani_cem5g,city_mno_1m,5G 시/도별 CEI 월단위 집계 
+o_tpani_cem5g,city_mno_1w,5G 시/도별 CEI 주단위 집계 
+o_tpani_cem5g,comp_mno_1d,5G ONS 본부별 CEI 일단위 집계 
+o_tpani_cem5g,comp_mno_1h,5G ONS 본부별 CEI 시간단위 집계 
+o_tpani_cem5g,comp_mno_1m,5G ONS 본부별 CEI 월단위 집계 
+o_tpani_cem5g,comp_mno_1w,5G ONS 본부별 CEI 주단위 집계 
+o_tpani_cem5g,dong_mno_1d,5G 동별 CEI 일단위 집계 
+o_tpani_cem5g,dong_mno_1h,5G 동별 CEI 시간단위 집계 
+o_tpani_cem5g,dong_mno_1m,5G 동별 CEI 월단위 집계 
+o_tpani_cem5g,dong_mno_1w,5G 동별 CEI 주단위 집계 
+o_tpani_cem5g,ems_1d,5G EMS별 CEI 일단위 집계 
+o_tpani_cem5g,ems_1h,5G EMS별 CEI 시간단위 집계 
+o_tpani_cem5g,enb_alias_1d,5G 기지국/펫네임별 CEI 일단위 집계 
+o_tpani_cem5g,enb_mno_1d,5G 기지국별 CEI 일단위 집계 
+o_tpani_cem5g,enb_mno_1h,5G 기지국별 CEI 시간단위 집계 
+o_tpani_cem5g,enb_mno_1m,5G 기지국별 CEI 월단위 집계 
+o_tpani_cem5g,enb_mno_1w,5G 기지국별 CEI 주단위 집계 
+o_tpani_cem5g,gu_mno_1d,5G 구/군별 CEI 일단위 집계 
+o_tpani_cem5g,gu_mno_1h,5G 구/군별 CEI 시간단위 집계 
+o_tpani_cem5g,gu_mno_1m,5G 구/군별 CEI 월단위 집계 
+o_tpani_cem5g,gu_mno_1w,5G 구/군별 CEI 주단위 집계 
+o_tpani_cem5g,imsi_area_1d,5G IMSI/전국 CEI 일단위 집계 
+o_tpani_cem5g,imsi_area_1h,5G IMSI/전국 CEI 시간단위 집계 
+o_tpani_cem5g,imsi_bran_1d,5G IMSI/본부별 CEI 일단위 집계 
+o_tpani_cem5g,imsi_bran_1h,5G IMSI/본부별 CEI 시간단위 집계 
+o_tpani_cem5g,imsi_cell_1d,5G IMSI/쎌별 CEI 일단위 집계 
+o_tpani_cem5g,imsi_cell_1h,5G IMSI/쎌별 CEI 시간단위 집계 
+o_tpani_cem5g,imsi_enb_1d,5G IMSI/기지국별 CEI 일단위 집계 
+o_tpani_cem5g,imsi_enb_1h,5G IMSI/기지국별 CEI 시간단위 집계 
+o_tpani_cem5g,mme_1d,5G MME별 CEI 일단위 집계 
+o_tpani_cem5g,mme_1h,5G MME별 CEI 시간단위 집계 
+o_tpani_cem5g,part_alias_1d,5G ONS 품질개선팀/펫네임별 CEI 일단위 집계 
+o_tpani_cem5g,part_mno_1d,5G ONS 품질개선팀별 CEI 일단위 집계 
+o_tpani_cem5g,part_mno_1h,5G ONS 품질개선팀별 CEI 시간단위 집계 
+o_tpani_cem5g,part_mno_1m,5G ONS 품질개선팀별 CEI 월단위 집계 
+o_tpani_cem5g,part_mno_1w,5G ONS 품질개선팀별 CEI 주단위 집계 
+o_tpani_cem5g,pgw_1d,5G PGW별 CEI 일단위 집계 
+o_tpani_cem5g,pgw_1h,5G PGW별 CEI 시간단위 집계 
+o_tpani_cem5g,sgw_1d,5G SGW별 CEI 일단위 집계 
+o_tpani_cem5g,sgw_1h,5G SGW별 CEI 시간단위 집계 
+o_tpani_cem5g,team_mno_1d,5G SKT AI팀별 CEI 일단위 집계 
+o_tpani_cem5g,team_mno_1h,5G SKT AI팀별 CEI 시간단위 집계 
+o_tpani_cem5g,team_mno_1m,5G SKT AI팀별 CEI 월단위 집계 
+o_tpani_cem5g,team_mno_1w,5G SKT AI팀별 CEI 주단위 집계 
+o_rems,rems_rpt_info_all,중계기 구성정보 
+o_ircs,ircs_rpt_report_rf,	IRCS RF중계기 현황리포트 데이터 규격 
+o_usm,ss_schedule_report_1d,삼성 광레벨 데이터 일단위 리포트 
+o_smap,kpi_xcap,4G/5G 초 단위 측정 내역 
+o_smap,pscall_statistics_scenario,4G/5G 시나리오 단위 측정 내역 
+o_smap,pscall_statistics_traffic_scenario,4G/5G 시나리오 단위 트래픽(traffic) 측정 내역 
+o_smap,pscall_xcap,4G/5G 콜 단위 측정 내역 
+o_smap,pscall_xcap_traffic,4G/5G 콜 단위 트래픽(Traffic) 측정 내역 
+d_coa,dcoa_eqp_bas_binf_1h,Access 장비 기본 정보 
+d_smf,dsmf_qlt_low_rqp_loc_1h,품질저하 별 RQP 위치정보 시간단위 
+d_psx,dpsx_5g_all_ran_gnb_kpi_1h,5G Access RAN gNodeB 장비별 KPI 1시간 성능 통계 
+d_psx,dpsx_5g_all_ran_gnb_cell_kpi_1h,5G Access ran gNodeB Cell KPI 1시간 성능 통계 
+d_psn,dpsn_lte_ss_enb_prb_usage_tot_5m,4G LTE 삼성 RAN Total PRB Usage 5분 통계 
+d_psn,dpsn_lte_all_enb_ovrl_ind_eqp_cell_kpi_stc_1h,lte Access ran enodeb cell kpi 1시간 성능 통계 
+d_psn,dpsn_lte_all_enb_ovrl_ind_eqp_kpi_1h,LTE Access ran enodeb 장비별 KPI 1시간 성능 통계 

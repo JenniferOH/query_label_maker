@@ -7,7 +7,7 @@ I made this since there are hundreds and thousands of tables/columns and I can't
 
 ## Input files
 
-- columns.csv : list of all columns from all the tables (columns: table_list, column, type, synonym_list, sample_list, partition_key)
+- columns.csv : list of all columns from all the tables (columns: table_list, column, type, column_nat, sample_list, partition_key)
 - tables.csv : list of all tables (columns: table, table_nat)
 - query_template.csv : query format tempaltes, need to fill template with select, from and where (columns: type, question, query)
 - datetime_template.csv : list of natural language and query in each date format (columns: query_format, nat_format, type, range)

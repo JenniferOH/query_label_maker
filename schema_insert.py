@@ -1,9 +1,12 @@
 import ast
+import random
+import numpy as np
 import pandas as pd
 
 from util import get_argparser
 from util import read_inputs
 table = pd.read_csv('./input/tables.csv')
+
 
 def parse_option():
     parser = get_argparser()
@@ -13,7 +16,7 @@ def parse_option():
     args = parser.parse_args()
     return args
 
-#
+
 def main(args):
     table_name = args.table_name
     table_nat_list = args.table_nat_list.split(',')

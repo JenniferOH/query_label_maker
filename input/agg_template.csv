@@ -1,6 +1,6 @@
 function,function_nat_list
-max,"['maximum','max']"
-min,"['minimum','min']"
-avg,"['average','mean']"
-sum,"['sum']"
-stddev,"['stddev','std deviation','standard dev']"
+max,"['최대','가장 높은', 'max']"
+min,"['최소','제일 낮은', 'min']"
+avg,"['평균','agv', 'mean']"
+sum,"['합']"
+stddev,"['stddev','표준편차']"

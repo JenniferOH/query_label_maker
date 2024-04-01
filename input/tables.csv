@@ -1,4 +1,4 @@
 table,table_nat
-trace_flat,"['trace data', 'trace table']"
-summary_flat,"['summary table', 'summary data']"
-wafer_table,"['wafer table']"
+bran_1d,"['skt 본부별']"
+area_1d,"['전국']"
+cell_1d,"['셀 데이터']"

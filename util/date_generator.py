@@ -55,7 +55,7 @@ class DateGenerator:
         pk_col_format = parkey_dtcol.iloc[0]['column_format']
         pk_col_type = parkey_dtcol.iloc[0]['type']
         dt_df = self.dt_temp[self.dt_temp.type == col_type].index
-        col_nat_list = target_col.iloc[0]['synonym_list']
+        col_nat_list = target_col.iloc[0]['column_nat']
         is_partition = target_col.iloc[0]['partition_key']
 
         # pick random format from nat formats which matches selected dt_col's type
