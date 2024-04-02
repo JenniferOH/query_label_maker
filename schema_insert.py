@@ -5,7 +5,7 @@ import pandas as pd
 
 from util import get_argparser
 from util import read_inputs
-table = pd.read_csv('./input/tables.csv')
+table = pd.read_csv('input/tables_bak.csv')
 
 
 def parse_option():

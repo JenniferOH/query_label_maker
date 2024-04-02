@@ -14,6 +14,7 @@ where_nat,where,type,last
 {column_nat} 값이 {value} 보다 작거나 같고,{column} <= {value},number,0
 {column_nat} 값이 {value_range1} ~ {value_range2},{column} BETWEEN {value_range1} AND {value_range2},number,0
 {column_nat}{josa} {value_range1} ~ {value_range2} 사이이고,{column} BETWEEN {value_range1} AND {value_range2},number,0
+{column_nat}{josa} {value_range1} 이상 {value_range2} 미만이고,{column} BETWEEN {value_range1} AND {value_range2},number,0
 {column_nat} null이 아니고,{column} IS NOT NULL,all,0
 {column_nat} 값이 null이고,{column} IS NULL,all,0
 {column_nat}{josa} 빈 값이고,{column} = '',string,0
@@ -35,6 +36,7 @@ where_nat,where,type,last
 {column_nat} 값이 {value} 보다 작거나 같은,{column} <= {value},number,1
 {column_nat} 값이 {value_range1} ~ {value_range2} 사이인,{column} BETWEEN {value_range1} AND {value_range2},number,1
 {column_nat}{josa} {value_range1} ~ {value_range2} 사이인,{column} BETWEEN {value_range1} AND {value_range2},number,1
+{column_nat}{josa} {value_range1} 이상 {value_range2} 미만인,{column} BETWEEN {value_range1} AND {value_range2},number,1
 {column_nat}{josa} null이 아닌,{column} IS NOT NULL,all,1
 {column_nat} 값이 null인,{column} IS NULL,all,1
 {column_nat}{josa} 빈 값인,{column} = '',string,1

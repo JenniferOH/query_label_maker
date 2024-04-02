@@ -1,4 +1,5 @@
 import re
+from pyjosa.josa import Josa
 
 
 def ends_with_jong(kstr):
@@ -40,7 +41,11 @@ def _and(kstr, is_final=False):
     josa = "고" if ends_with_jong(kstr) else "이고"
 
 
-if __name__ == '__main__':
-    print(_yika('lang'))
+if __name__ =='__main__':
+    text = '장비 구분'
+    print(text + _yika(text))
+    print(text+Josa.get_josa(text, '가'))
+
+
 
 

@@ -5,7 +5,7 @@ type,question,query
 "0","{where_condition_nat} {table_nat} {select_column_nat} 나열","SELECT DISTINCT {select_column} FROM {table} WHERE {where_condition}"
 "0","{table_nat} {select_column_nat} 나열해줘. {where_condition_nat} 데이터만 보여줘","SELECT DISTINCT {select_column} FROM {table} WHERE {where_condition}"
 "0","{table_nat} {where_condition_nat} {select_column_nat} 데이터 나열해줘","SELECT DISTINCT {select_column} FROM {table} WHERE {where_condition}"
-"0","{table_nat}에서 {where_condition_nat} 유니크한 {select_column_nat} 보여 ","SELECT DISTINCT {select_column} FROM {table} WHERE {where_condition}"
+"0","{table_nat}에서 {where_condition_nat} 유니크한 {select_column_nat} 보여줘","SELECT DISTINCT {select_column} FROM {table} WHERE {where_condition}"
 "0","{where_condition_nat} 데이터 중 가장 많은 날이 언제야?","SELECT dt FROM {table} WHERE {where_condition} GROUP BY dt ORDER BY COUNT(*) DESC LIMIT 1"
 
 "1","{where_condition_nat} {table_nat} {count_column_nat}이 몇개 있는지 알려줘","SELECT {count_format} FROM {table} WHERE {where_condition}"
@@ -13,3 +13,7 @@ type,question,query
 
 "2","{where_condition_nat} {table_nat} {groupby_column_nat}별 {agg_function_column_nat}의 {agg_function_nat}값 구해줘","SELECT {groupby_column}, {agg_function_column} FROM {table} WHERE {where_condition} GROUP BY {groupby_column}"
 "2","{table_nat} 각 {groupby_column_nat}별 {agg_function_column_nat}의 {agg_function_nat}값 구해줘","SELECT {groupby_column}, {agg_function_column} FROM {table} GROUP BY {groupby_column}"
+
+"3","{where_condition_nat} 데이터 중 {order_by_nat} {orderby_column_nat} {limit_count}개 보여줘","SELECT {orderby_column} FROM {table} WHERE {where_condition} ORDER BY {orderby_column} {order_by} LIMIT {limit_count}"
+"3","{where_condition_nat} {table_nat} 에서 {order_by_nat} {orderby_column_nat}가 뭐야","SELECT {orderby_column} FROM {table} WHERE {where_condition} ORDER BY {orderby_column} {order_by} LIMIT 1"
+"3","{where_condition_nat} {table_nat} 에서 {order_by_nat} {orderby_column_nat} 값","SELECT {orderby_column} FROM {table} WHERE {where_condition} ORDER BY {orderby_column} {order_by} LIMIT 1"
