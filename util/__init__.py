@@ -27,8 +27,8 @@ def read_inputs(args):
     tables = pd.read_csv(args.tables_path, header=0, converters={'table_nat': pd.eval})
     # tables = pd.read_csv(args.tables_path, header=0)
     columns = pd.read_csv(args.columns_path, header=0,
-                          converters={'table_list': pd.eval, 'sample_list': pd.eval})
-                          # converters={'table_list': pd.eval, 'column_nat': pd.eval, 'sample_list': pd.eval})
+                          # converters={'table_list': pd.eval, 'sample_list': pd.eval})
+                          converters={'table_list': pd.eval, 'column_nat': pd.eval, 'sample_list': pd.eval})
     # columns['column_nat'] = columns.apply(lambda x: x['column_nat'] + [x['column']], axis=1)
     columns = columns.explode('table_list').rename(columns={'table_list': 'table'}).reset_index(drop=True)
     dt_tp = pd.read_csv(args.datetime_template_path, header=0)

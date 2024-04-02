@@ -33,7 +33,7 @@ def main(args):
     query_list = []
     question_list = []
 
-    for idx, row in tables.groupby(['database', 'table']).first().reset_index().iterrows():
+    for idx, row in tables.groupby(['database', 'table']).first().reset_index()[:2].iterrows():
         db = row['database']
         table = row['table']
         querys, questions = query_generator.get_query_list(db, table, args.num_labels)

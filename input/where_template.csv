@@ -1,4 +1,4 @@
-where_nat,where,type,last
+where_nat,where,type,last_flag
 {column_nat}{josa} {value}이고,{column} = '{value}',string,0
 {column_nat}{josa} {value}{josa} 아니고,{column} != '{value}',string,0
 {column_nat} 값이 {value},{column} = {value},number,0
@@ -15,7 +15,7 @@ where_nat,where,type,last
 {column_nat} 값이 {value_range1} ~ {value_range2},{column} BETWEEN {value_range1} AND {value_range2},number,0
 {column_nat}{josa} {value_range1} ~ {value_range2} 사이이고,{column} BETWEEN {value_range1} AND {value_range2},number,0
 {column_nat}{josa} {value_range1} 이상 {value_range2} 미만이고,{column} BETWEEN {value_range1} AND {value_range2},number,0
-{column_nat} null이 아니고,{column} IS NOT NULL,all,0
+{column_nat}{josa} null이 아니고,{column} IS NOT NULL,all,0
 {column_nat} 값이 null이고,{column} IS NULL,all,0
 {column_nat}{josa} 빈 값이고,{column} = '',string,0
 {column_nat}{josa} 빈 값이 아니고,{column} != '',string,0

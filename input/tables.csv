@@ -33,7 +33,7 @@ d_psn,dpsn_lte_ss_enb_hdov_x2in_1h,['LTE 삼성 RAN X2 In Handover 1시간 통�
 d_psn,dpsn_lte_ss_enb_iiu_rssi_tssi_5m,['LTE 삼성 RAN IIU RSSI TSSI 5분 통계']
 d_psn,dpsn_lte_ss_enb_kpi_ctrf_ovrl_1h,['삼성 종합 KPI Call Traffic 1시간 KPI 성능']
 d_psn,dpsn_lte_ss_enb_path_rssi_1h,['LTE 삼성 RAN RSSI of Each Path Measured by MAC 1시간 통계']
-d_psn,dpsn_lte_ss_enb_prb_usage_tot_5m,"['4G LTE 삼성 RAN Total PRB Usage 5분 통계 ', 'LTE 삼성 RAN Total PRB Usage 5분 통계']"
+d_psn,dpsn_lte_ss_enb_prb_usage_tot_5m,"['4G LTE 삼성 RAN Total PRB Usage 5분 통계', 'LTE 삼성 RAN Total PRB Usage 5분 통계']"
 d_psn,dpsn_lte_ss_enb_pwr_1h,['삼성 RAN 기타2 POWER 1시간 성능 통계']
 d_psn,dpsn_lte_ss_enb_rrc_connection_setup_time_1h,['LTE 삼성 RAN RRC Connection Setup Time 1시간 통계']
 d_psn,dpsn_lte_ss_enb_smry_kpi_rach_succ_rate_1h,['삼성 RAN 요약통계 KPI-RACH 성공율 1시간']
@@ -46,7 +46,7 @@ d_psx,dpsx_5g_elg_ran_sfp_mod_e_1h,['5G NSA ELG RAN gNodeB SfpModule_Env 1시간
 d_psx,dpsx_5g_ss_ran_acpf_sb_a_pg_1h,['5G NSA 삼성 RAN ACPF SgNB Addition per gNB 1시간 통계']
 d_psx,dpsx_5g_ss_ran_du_a_mac_bts_1h,['5G NSA 삼성 RAN DU Air MAC Packet 1시간 통계']
 d_psx,dpsx_5g_ss_ran_du_prb_tot_1h,['5G NSA 삼성 RAN DU Total PRB Usage 1시간 통계']
-d_smf,dsmf_qlt_low_rqp_loc_1h,"['품질저하 별 RQP 위치정보 시간단위 ', '품질저하 별 RQP 위치정보']"
+d_smf,dsmf_qlt_low_rqp_loc_1h,"['품질저하 별 RQP 위치정보 시간단위', '품질저하 별 RQP 위치정보']"
 d_smr,dsmr_app_std_rtt_sum_1d,['앱 기준 RTT 통계 일단위 - 일별 앱별 aRTT non_aRTT 통계']
 d_smr,dsmr_imsi_cfr_smry_sum_1h,['IMSI단위 CALL FAIL REASON 요약집계 시간단위']
 o_cms,cl_cell_map,['CMS LTE 기지국 CELL 매핑 정보']
@@ -65,19 +65,19 @@ o_iam,cms_cellinfo_day,['IAM CELL 구성정보']
 o_iam,cms_nsn_lncell4_day,['IAM NSN EMS LNCell 정보']
 o_iam,sfssl_pm_alarm_day_hist,['IAM 삼성 알람 일일 정보 히스토리']
 o_ircs,alam_cd_lst,['IRCS 알람코드']
-o_ircs,ircs_rpt_report_rf,"['IRCS RF중계기 현황리포트 데이터 규격 ', 'IRCS RF중계기 현황리포트 데이터 규격']"
+o_ircs,ircs_rpt_report_rf,['IRCS RF중계기 현황리포트 데이터 규격']
 o_rems,rems_alam_cd,['알람코드']
 o_rems,rems_real_alam_all,['실시간 알람 파일']
 o_rems,rems_real_alam_tm,['실시간 알람 파일']
-o_rems,rems_rpt_info_all,"['중계기 구성정보 ', '중계기 구성정보 파일']"
+o_rems,rems_rpt_info_all,"['중계기 구성정보', '중계기 구성정보 파일']"
 o_samson_cm,cm_cell_info_summary,['T-PANI CELL 종합 정보 요약']
 o_samson_cm,cm_ukey_eqp_mdl,['T-PANI UKEY 단말모델 기본정보']
 o_samson_pm,pm_cei_cell_5m,['CELL 단위 신규 5분 CEI 데이터']
-o_smap,kpi_xcap,"['4G 5G 초 단위 측정 내역 ', 'KPI_XCAP']"
-o_smap,pscall_statistics_scenario,"['4G 5G 시나리오 단위 측정 내역 ', 'pscall_statistics_scenario']"
-o_smap,pscall_statistics_traffic_scenario,"['4G 5G 시나리오 단위 트래픽(traffic 측정 내역 ', 'pscall_statistics_traffic_scenario']"
-o_smap,pscall_xcap,"['4G 5G 콜 단위 측정 내역 ', 'pscall_xcap']"
-o_smap,pscall_xcap_traffic,"['4G 5G 콜 단위 트래픽(Traffic 측정 내역 ', 'pscall_xcap_traffic']"
+o_smap,kpi_xcap,"['4G 5G 초 단위 측정 내역', 'KPI_XCAP']"
+o_smap,pscall_statistics_scenario,"['4G 5G 시나리오 단위 측정 내역', 'pscall_statistics_scenario']"
+o_smap,pscall_statistics_traffic_scenario,"['4G 5G 시나리오 단위 트래픽(traffic 측정 내역', 'pscall_statistics_traffic_scenario']"
+o_smap,pscall_xcap,"['4G 5G 콜 단위 측정 내역', 'pscall_xcap']"
+o_smap,pscall_xcap_traffic,"['4G 5G 콜 단위 트래픽(Traffic 측정 내역', 'pscall_xcap_traffic']"
 o_tango_a,aua_cell_by10sec_sum,['셀단위분석']
 o_tango_a,invxr_5g_id_link_ril_wl1,['INVXR 5G 정보 SON에서 IDCube 연동']
 o_tango_ec,cco_org_bas,['CCO_ORG_BAS']
@@ -87,71 +87,71 @@ o_tango_ec,gis_fclt_tn_falt_bas,['gis_시설물전송망고장기본']
 o_tango_i,im_lte_cell_inf,['TANGO LTE CELL 기본정보']
 o_tango_owm,wm_work_list,['작업대상 정보']
 o_tango_owm,wm_work_lst_v2,['WM 작업 목록']
-o_tpani_cem,area_1d,"['4G 전국 CEI 일단위 집계 ', 'LTE 전국 CEI 일단위 집계']"
-o_tpani_cem,area_1h,"['4G 전국 CEI 시간단위 집계 ', 'LTE 전국 CEI 시간단위 집계']"
-o_tpani_cem,area_age_1d,"['4G 전국 연령대별 CEI 일단위 집계 ', 'LTE 전국 연령대별 CEI 일단위 집계']"
-o_tpani_cem,area_alias_1d,"['4G 전국 펫네임별 CEI 일단위 집계 ', 'LTE 전국 펫네임별 CEI 일단위 집계']"
-o_tpani_cem,area_alias_1h,"['4G 전국 펫네임별 CEI 시간단위 집계 ', 'LTE 전국 펫네임별 CEI 시간단위 집계']"
-o_tpani_cem,area_alias_fw_1d,"['4G 전국 펫네임 펌웨어별 CEI 일단위 집계 ', 'LTE 전국 펫네임 펌웨어별 CEI 일단위 집계']"
-o_tpani_cem,area_alias_fw_1h,"['4G 전국 펫네임 펌웨어별 CEI 시간단위 집계 ', 'LTE 전국 펫네임 펌웨어별 CEI 시간단위 집계']"
-o_tpani_cem,area_chg_1d,"['4G 전국 요금제별 CEI 일단위 집계 ', 'LTE 전국 요금제별 CEI 일단위 집계']"
-o_tpani_cem,bran_1d,"['4G SKT 본부별 CEI 일단위 집계 ', 'LTE SKT 본부별 CEI 일단위 집계']"
-o_tpani_cem,bran_1h,"['4G SKT 본부별 CEI 시간단위 집계 ', 'LTE SKT 본부별 CEI 시간단위 집계']"
-o_tpani_cem,bran_1m,"['4G SKT 본부별 CEI 월단위 집계 ', 'LTE SKT 본부별 CEI 월단위 집계']"
-o_tpani_cem,bran_1w,"['4G SKT 본부별 CEI 주단위 집계 ', 'LTE SKT 본부별 CEI 주단위 집계']"
-o_tpani_cem,bran_alias_1d,"['4G SKT 본부별 펫네임별 CEI 일단위 집계 ', 'LTE SKT 본부별 펫네임별 CEI 일단위 집계']"
-o_tpani_cem,bran_alias_fw_1d,"['4G SKT 본부별 펫네임 펌웨어별 CEI 일단위 집계 ', 'LTE SKT 본부별 펫네임 펌웨어별 CEI 일단위 집계']"
-o_tpani_cem,bran_alias_fw_1h,"['4G SKT 본부별 펫네임 펌웨어별 CEI 시간단위 집계 ', 'LTE SKT 본부별 펫네임 펌웨어별 CEI 시간단위 집계']"
-o_tpani_cem,cell_1d,"['4G 쎌별 CEI 일단위 집계 ', 'LTE 쎌별 CEI 일단위 집계']"
-o_tpani_cem,cell_1h,"['4G 쎌별 CEI 시간단위 집계 ', 'LTE 쎌별 CEI 시간단위 집계']"
-o_tpani_cem,cell_1m,"['4G 쎌별 CEI 월단위 집계 ', 'LTE 쎌별 CEI 월단위 집계']"
-o_tpani_cem,cell_1w,"['4G 쎌별 CEI 주단위 집계 ', 'LTE 쎌별 CEI 주단위 집계']"
-o_tpani_cem,city_1d,"['4G 시 도별 CEI 일단위 집계 ', 'LTE 시 도별 CEI 일단위 집계']"
-o_tpani_cem,city_1h,"['4G 시 도별 CEI 시간단위 집계 ', 'LTE 시 도별 CEI 시간단위 집계']"
-o_tpani_cem,city_1m,"['4G 시 도별 CEI 월단위 집계 ', 'LTE 시 도별 CEI 월단위 집계']"
-o_tpani_cem,city_1w,"['4G 시 도별 CEI 주단위 집계 ', 'LTE 시 도별 CEI 주단위 집계']"
-o_tpani_cem,comp_1d,"['4G ONS 본부별 CEI 일단위 집계 ', 'LTE ONS 본부별 CEI 일단위 집계']"
-o_tpani_cem,comp_1h,"['4G ONS 본부별 CEI 시간단위 집계 ', 'LTE ONS 본부별 CEI 시간단위 집계']"
-o_tpani_cem,comp_1m,"['4G ONS 본부별 CEI 월단위 집계 ', 'LTE ONS 본부별 CEI 월단위 집계']"
-o_tpani_cem,comp_1w,"['4G ONS 본부별 CEI 주단위 집계 ', 'LTE ONS 본부별 CEI 주단위 집계']"
-o_tpani_cem,dong_1d,"['4G 동별 CEI 일단위 집계 ', 'LTE 동별 CEI 일단위 집계']"
-o_tpani_cem,dong_1h,"['4G 동별 CEI 시간단위 집계 ', 'LTE 동별 CEI 시간단위 집계']"
-o_tpani_cem,dong_1m,"['4G 동별 CEI 월단위 집계 ', 'LTE 동별 CEI 월단위 집계']"
-o_tpani_cem,dong_1w,"['4G 동별 CEI 주단위 집계 ', 'LTE 동별 CEI 주단위 집계']"
-o_tpani_cem,ems_1d,"['4G EMS별 CEI 일단위 집계 ', 'LTE EMS별 CEI 일단위 집계']"
-o_tpani_cem,ems_1h,"['4G EMS별 CEI 시간단위 집계 ', 'LTE EMS별 CEI 시간단위 집계']"
-o_tpani_cem,enb_1d,"['4G 기지국별 CEI 일단위 집계 ', 'LTE 기지국별 CEI 일단위 집계']"
-o_tpani_cem,enb_1h,"['4G 기지국별 CEI 시간단위 집계 ', 'LTE 기지국별 CEI 시간단위 집계']"
-o_tpani_cem,enb_1m,"['4G 기지국별 CEI 월단위 집계 ', 'LTE 기지국별 CEI 월단위 집계']"
-o_tpani_cem,enb_1w,"['4G 기지국별 CEI 주단위 집계 ', 'LTE 기지국별 CEI 주단위 집계']"
-o_tpani_cem,enb_alias_1d,"['4G 기지국 펫네임별 CEI 시간단위 집계 ', 'LTE 기지국 펫네임별 CEI 시간단위 집계']"
-o_tpani_cem,gu_1d,"['4G 구 군별 CEI 일단위 집계 ', 'LTE 구 군별 CEI 일단위 집계']"
-o_tpani_cem,gu_1h,"['4G 구 군별 CEI 시간단위 집계 ', 'LTE 구 군별 CEI 시간단위 집계']"
-o_tpani_cem,gu_1m,"['4G 구 군별 CEI 월단위 집계 ', 'LTE 구 군별 CEI 월단위 집계']"
-o_tpani_cem,gu_1w,"['4G 구 군별 CEI 주단위 집계 ', 'LTE 구 군별 CEI 주단위 집계']"
-o_tpani_cem,imsi_area_1d,"['4G IMSI 전국 CEI 일단위 집계 ', 'LTE IMSI 전국 CEI 일단위 집계']"
-o_tpani_cem,imsi_area_1h,"['4G IMSI 전국 CEI 시간단위 집계 ', 'LTE IMSI 전국 CEI 시간단위 집계']"
-o_tpani_cem,imsi_bran_1d,"['4G IMSI 본부별 CEI 일단위 집계 ', 'LTE IMSI 본부별 CEI 일단위 집계']"
-o_tpani_cem,imsi_bran_1h,"['4G IMSI 본부별 CEI 시간단위 집계 ', 'LTE IMSI 본부별 CEI 시간단위 집계']"
-o_tpani_cem,imsi_cell_1d,"['4G IMSI 쎌별 CEI 일단위 집계 ', 'LTE IMSI 쎌별 CEI 일단위 집계']"
-o_tpani_cem,imsi_cell_1h,"['4G IMSI 쎌별 CEI 시간단위 집계 ', 'LTE IMSI 쎌별 CEI 시간단위 집계']"
-o_tpani_cem,imsi_enb_1d,"['4G IMSI 기지국별 CEI 일단위 집계 ', 'LTE IMSI 기지국별 CEI 일단위 집계']"
-o_tpani_cem,imsi_enb_1h,"['4G IMSI 기지국별 CEI 시간단위 집계 ', 'LTE IMSI 기지국별 CEI 시간단위 집계']"
-o_tpani_cem,mme_1d,"['4G MME별 CEI 일단위 집계 ', 'LTE MME별 CEI 일단위 집계']"
-o_tpani_cem,mme_1h,"['4G MME별 CEI 시간단위 집계 ', 'LTE MME별 CEI 시간단위 집계']"
-o_tpani_cem,part_1d,"['4G ONS 품질개선팀별 CEI 일단위 집계 ', 'LTE ONS 품질개선팀별 CEI 일단위 집계']"
-o_tpani_cem,part_1h,"['4G ONS 품질개선팀별 CEI 시간단위 집계 ', 'LTE ONS 품질개선팀별 CEI 시간단위 집계']"
-o_tpani_cem,part_1m,"['4G ONS 품질개선팀별 CEI 월단위 집계 ', 'LTE ONS 품질개선팀별 CEI 월단위 집계']"
-o_tpani_cem,part_1w,"['4G ONS 품질개선팀별 CEI 주단위 집계 ', 'LTE ONS 품질개선팀별 CEI 주단위 집계']"
-o_tpani_cem,part_alias_1d,"['4G ONS 품질개선팀 펫네임별 CEI 일단위 집계 ', 'LTE ONS 품질개선팀 펫네임별 CEI 일단위 집계']"
-o_tpani_cem,pgw_1d,"['4G PGW별 CEI 일단위 집계 ', 'LTE PGW별 CEI 일단위 집계']"
-o_tpani_cem,pgw_1h,"['4G PGW별 CEI 시간단위 집계 ', 'LTE PGW별 CEI 시간단위 집계']"
-o_tpani_cem,sgw_1d,"['4G SGW별 CEI 일단위 집계 ', 'LTE SGW별 CEI 일단위 집계']"
-o_tpani_cem,sgw_1h,"['4G SGW별 CEI 시간단위 집계 ', 'LTE SGW별 CEI 시간단위 집계']"
-o_tpani_cem,team_1d,"['4G SKT AI팀별 CEI 일단위 집계 ', 'LTE SKT AI팀별 CEI 일단위 집계']"
-o_tpani_cem,team_1h,"['4G SKT AI팀별 CEI 시간단위 집계 ', 'LTE SKT AI팀별 CEI 시간단위 집계']"
-o_tpani_cem,team_1m,"['4G SKT AI팀별 CEI 월단위 집계 ', 'LTE SKT AI팀별 CEI 월단위 집계']"
-o_tpani_cem,team_1w,"['4G SKT AI팀별 CEI 주단위 집계 ', 'LTE SKT AI팀별 CEI 주단위 집계']"
+o_tpani_cem,area_1d,"['4G 전국 CEI 일단위 집계', 'LTE 전국 CEI 일단위 집계']"
+o_tpani_cem,area_1h,"['4G 전국 CEI 시간단위 집계', 'LTE 전국 CEI 시간단위 집계']"
+o_tpani_cem,area_age_1d,"['4G 전국 연령대별 CEI 일단위 집계', 'LTE 전국 연령대별 CEI 일단위 집계']"
+o_tpani_cem,area_alias_1d,"['4G 전국 펫네임별 CEI 일단위 집계', 'LTE 전국 펫네임별 CEI 일단위 집계']"
+o_tpani_cem,area_alias_1h,"['4G 전국 펫네임별 CEI 시간단위 집계', 'LTE 전국 펫네임별 CEI 시간단위 집계']"
+o_tpani_cem,area_alias_fw_1d,"['4G 전국 펫네임 펌웨어별 CEI 일단위 집계', 'LTE 전국 펫네임 펌웨어별 CEI 일단위 집계']"
+o_tpani_cem,area_alias_fw_1h,"['4G 전국 펫네임 펌웨어별 CEI 시간단위 집계', 'LTE 전국 펫네임 펌웨어별 CEI 시간단위 집계']"
+o_tpani_cem,area_chg_1d,"['4G 전국 요금제별 CEI 일단위 집계', 'LTE 전국 요금제별 CEI 일단위 집계']"
+o_tpani_cem,bran_1d,"['4G SKT 본부별 CEI 일단위 집계', 'LTE SKT 본부별 CEI 일단위 집계']"
+o_tpani_cem,bran_1h,"['4G SKT 본부별 CEI 시간단위 집계', 'LTE SKT 본부별 CEI 시간단위 집계']"
+o_tpani_cem,bran_1m,"['4G SKT 본부별 CEI 월단위 집계', 'LTE SKT 본부별 CEI 월단위 집계']"
+o_tpani_cem,bran_1w,"['4G SKT 본부별 CEI 주단위 집계', 'LTE SKT 본부별 CEI 주단위 집계']"
+o_tpani_cem,bran_alias_1d,"['4G SKT 본부별 펫네임별 CEI 일단위 집계', 'LTE SKT 본부별 펫네임별 CEI 일단위 집계']"
+o_tpani_cem,bran_alias_fw_1d,"['4G SKT 본부별 펫네임 펌웨어별 CEI 일단위 집계', 'LTE SKT 본부별 펫네임 펌웨어별 CEI 일단위 집계']"
+o_tpani_cem,bran_alias_fw_1h,"['4G SKT 본부별 펫네임 펌웨어별 CEI 시간단위 집계', 'LTE SKT 본부별 펫네임 펌웨어별 CEI 시간단위 집계']"
+o_tpani_cem,cell_1d,"['4G 쎌별 CEI 일단위 집계', 'LTE 쎌별 CEI 일단위 집계']"
+o_tpani_cem,cell_1h,"['4G 쎌별 CEI 시간단위 집계', 'LTE 쎌별 CEI 시간단위 집계']"
+o_tpani_cem,cell_1m,"['4G 쎌별 CEI 월단위 집계', 'LTE 쎌별 CEI 월단위 집계']"
+o_tpani_cem,cell_1w,"['4G 쎌별 CEI 주단위 집계', 'LTE 쎌별 CEI 주단위 집계']"
+o_tpani_cem,city_1d,"['4G 시 도별 CEI 일단위 집계', 'LTE 시 도별 CEI 일단위 집계']"
+o_tpani_cem,city_1h,"['4G 시 도별 CEI 시간단위 집계', 'LTE 시 도별 CEI 시간단위 집계']"
+o_tpani_cem,city_1m,"['4G 시 도별 CEI 월단위 집계', 'LTE 시 도별 CEI 월단위 집계']"
+o_tpani_cem,city_1w,"['4G 시 도별 CEI 주단위 집계', 'LTE 시 도별 CEI 주단위 집계']"
+o_tpani_cem,comp_1d,"['4G ONS 본부별 CEI 일단위 집계', 'LTE ONS 본부별 CEI 일단위 집계']"
+o_tpani_cem,comp_1h,"['4G ONS 본부별 CEI 시간단위 집계', 'LTE ONS 본부별 CEI 시간단위 집계']"
+o_tpani_cem,comp_1m,"['4G ONS 본부별 CEI 월단위 집계', 'LTE ONS 본부별 CEI 월단위 집계']"
+o_tpani_cem,comp_1w,"['4G ONS 본부별 CEI 주단위 집계', 'LTE ONS 본부별 CEI 주단위 집계']"
+o_tpani_cem,dong_1d,"['4G 동별 CEI 일단위 집계', 'LTE 동별 CEI 일단위 집계']"
+o_tpani_cem,dong_1h,"['4G 동별 CEI 시간단위 집계', 'LTE 동별 CEI 시간단위 집계']"
+o_tpani_cem,dong_1m,"['4G 동별 CEI 월단위 집계', 'LTE 동별 CEI 월단위 집계']"
+o_tpani_cem,dong_1w,"['4G 동별 CEI 주단위 집계', 'LTE 동별 CEI 주단위 집계']"
+o_tpani_cem,ems_1d,"['4G EMS별 CEI 일단위 집계', 'LTE EMS별 CEI 일단위 집계']"
+o_tpani_cem,ems_1h,"['4G EMS별 CEI 시간단위 집계', 'LTE EMS별 CEI 시간단위 집계']"
+o_tpani_cem,enb_1d,"['4G 기지국별 CEI 일단위 집계', 'LTE 기지국별 CEI 일단위 집계']"
+o_tpani_cem,enb_1h,"['4G 기지국별 CEI 시간단위 집계', 'LTE 기지국별 CEI 시간단위 집계']"
+o_tpani_cem,enb_1m,"['4G 기지국별 CEI 월단위 집계', 'LTE 기지국별 CEI 월단위 집계']"
+o_tpani_cem,enb_1w,"['4G 기지국별 CEI 주단위 집계', 'LTE 기지국별 CEI 주단위 집계']"
+o_tpani_cem,enb_alias_1d,"['4G 기지국 펫네임별 CEI 시간단위 집계', 'LTE 기지국 펫네임별 CEI 시간단위 집계']"
+o_tpani_cem,gu_1d,"['4G 구 군별 CEI 일단위 집계', 'LTE 구 군별 CEI 일단위 집계']"
+o_tpani_cem,gu_1h,"['4G 구 군별 CEI 시간단위 집계', 'LTE 구 군별 CEI 시간단위 집계']"
+o_tpani_cem,gu_1m,"['4G 구 군별 CEI 월단위 집계', 'LTE 구 군별 CEI 월단위 집계']"
+o_tpani_cem,gu_1w,"['4G 구 군별 CEI 주단위 집계', 'LTE 구 군별 CEI 주단위 집계']"
+o_tpani_cem,imsi_area_1d,"['4G IMSI 전국 CEI 일단위 집계', 'LTE IMSI 전국 CEI 일단위 집계']"
+o_tpani_cem,imsi_area_1h,"['4G IMSI 전국 CEI 시간단위 집계', 'LTE IMSI 전국 CEI 시간단위 집계']"
+o_tpani_cem,imsi_bran_1d,"['4G IMSI 본부별 CEI 일단위 집계', 'LTE IMSI 본부별 CEI 일단위 집계']"
+o_tpani_cem,imsi_bran_1h,"['4G IMSI 본부별 CEI 시간단위 집계', 'LTE IMSI 본부별 CEI 시간단위 집계']"
+o_tpani_cem,imsi_cell_1d,"['4G IMSI 쎌별 CEI 일단위 집계', 'LTE IMSI 쎌별 CEI 일단위 집계']"
+o_tpani_cem,imsi_cell_1h,"['4G IMSI 쎌별 CEI 시간단위 집계', 'LTE IMSI 쎌별 CEI 시간단위 집계']"
+o_tpani_cem,imsi_enb_1d,"['4G IMSI 기지국별 CEI 일단위 집계', 'LTE IMSI 기지국별 CEI 일단위 집계']"
+o_tpani_cem,imsi_enb_1h,"['4G IMSI 기지국별 CEI 시간단위 집계', 'LTE IMSI 기지국별 CEI 시간단위 집계']"
+o_tpani_cem,mme_1d,"['4G MME별 CEI 일단위 집계', 'LTE MME별 CEI 일단위 집계']"
+o_tpani_cem,mme_1h,"['4G MME별 CEI 시간단위 집계', 'LTE MME별 CEI 시간단위 집계']"
+o_tpani_cem,part_1d,"['4G ONS 품질개선팀별 CEI 일단위 집계', 'LTE ONS 품질개선팀별 CEI 일단위 집계']"
+o_tpani_cem,part_1h,"['4G ONS 품질개선팀별 CEI 시간단위 집계', 'LTE ONS 품질개선팀별 CEI 시간단위 집계']"
+o_tpani_cem,part_1m,"['4G ONS 품질개선팀별 CEI 월단위 집계', 'LTE ONS 품질개선팀별 CEI 월단위 집계']"
+o_tpani_cem,part_1w,"['4G ONS 품질개선팀별 CEI 주단위 집계', 'LTE ONS 품질개선팀별 CEI 주단위 집계']"
+o_tpani_cem,part_alias_1d,"['4G ONS 품질개선팀 펫네임별 CEI 일단위 집계', 'LTE ONS 품질개선팀 펫네임별 CEI 일단위 집계']"
+o_tpani_cem,pgw_1d,"['4G PGW별 CEI 일단위 집계', 'LTE PGW별 CEI 일단위 집계']"
+o_tpani_cem,pgw_1h,"['4G PGW별 CEI 시간단위 집계', 'LTE PGW별 CEI 시간단위 집계']"
+o_tpani_cem,sgw_1d,"['4G SGW별 CEI 일단위 집계', 'LTE SGW별 CEI 일단위 집계']"
+o_tpani_cem,sgw_1h,"['4G SGW별 CEI 시간단위 집계', 'LTE SGW별 CEI 시간단위 집계']"
+o_tpani_cem,team_1d,"['4G SKT AI팀별 CEI 일단위 집계', 'LTE SKT AI팀별 CEI 일단위 집계']"
+o_tpani_cem,team_1h,"['4G SKT AI팀별 CEI 시간단위 집계', 'LTE SKT AI팀별 CEI 시간단위 집계']"
+o_tpani_cem,team_1m,"['4G SKT AI팀별 CEI 월단위 집계', 'LTE SKT AI팀별 CEI 월단위 집계']"
+o_tpani_cem,team_1w,"['4G SKT AI팀별 CEI 주단위 집계', 'LTE SKT AI팀별 CEI 주단위 집계']"
 o_tpani_cem5g,area_1d,['T-PANI 전국 5G CEI 집계 의 일 단위']
 o_tpani_cem5g,area_1h,['T-PANI 전국 5G CEI 집계 의 시간 단위']
 o_tpani_cem5g,area_age_1d,['5G 전국 연령대별 CEI 일단위 집계']
@@ -225,4 +225,4 @@ o_tpani_cem5g,team_mno_1m,['5G SKT AI팀별 CEI 월단위 집계']
 o_tpani_cem5g,team_mno_1w,['5G SKT AI팀별 CEI 주단위 집계']
 o_tpani_dw,enb_kpi_1m,['T-PANI 분단위 ENB KPI']
 o_tpani_dw,enb_kpi_5g_1m,['T-PANI 분단위 ENB KPI']
-o_usm,ss_schedule_report_1d,"['삼성 광레벨 데이터 일단위 리포트 ', '삼성 광레벨데이터']"
+o_usm,ss_schedule_report_1d,"['삼성 광레벨 데이터 일단위 리포트', '삼성 광레벨데이터']"
