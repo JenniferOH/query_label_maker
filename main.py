@@ -33,7 +33,7 @@ def main(args):
     query_list = []
     question_list = []
 
-    for idx, row in tables.groupby(['database', 'table']).first().reset_index()[:2].iterrows():
+    for idx, row in tables.groupby(['database', 'table']).first().reset_index().iterrows():
         db = row['database']
         table = row['table']
         querys, questions = query_generator.get_query_list(db, table, args.num_labels)
@@ -46,38 +46,40 @@ def main(args):
                 print(qs, qr)
 
     # create input data for schema
-    # tables_list = []
-    # column_names = [[-1, '*']]
-    # column_names_original = [[-1, '*']]
-    # column_types = ['text']
-    # table_names = []
-    # table_names_original = []
-    #
-    # for idx, trow in tables.iterrows():
-    #     for i, row in columns[columns.table == trow['table']].iterrows():
-    #         column_names.append([idx, row['column'].lower().replace('_', ' ')])
-    #         column_names_original.append([idx, row['column']])
-    #         column_types.append(TYPE_MAPPER[row['type']])
-    #     table_names.append(trow['table_nat'])
-    #     table_names_original.append(trow['table'])
-    #
-    # tables_list.append({
-    #     "column_names": column_names,
-    #     "column_names_original": column_names_original,
-    #     "column_types": column_types,
-    #     "db_id": "o_tpani_cem",
-    #     "foreign_keys": [],
-    #     "primary_keys": [],
-    #     "table_names": table_names,
-    #     "table_names_original": table_names_original
-    # })
-    # with open(args.result_tables_path, 'w') as f:
-    #     json.dump(tables_list, f)
+    tables_list = []
+    column_names = ['*']
+    column_names_original = ['*']
+    column_types = ['text']
+    table_names = []
+    table_names_original = []
+
+    for idx, trow in tables.iterrows():
+        table_names.append(trow['table_nat'][0])
+        table_names_original.append(trow['table'])
+
+    for i, row in columns.groupby('column').first().reset_index().iterrows():
+        column_names.append(row['column'].lower().replace('_', ' '))
+        column_names_original.append(row['column'])
+
+    tables_list.append({
+        "column_names": column_names,
+        "column_names_original": column_names_original,
+        # "column_types": column_types,
+        "db_id": "infra_dt",
+        # "foreign_keys": [],
+        # "primary_keys": [],
+        "table_names": table_names,
+        "table_names_original": table_names_original
+    })
+
+    # print('@@@ column_names: ', column_names[:10])
+    with open(args.result_tables_path, 'w') as f:
+        json.dump(tables_list, f)
 
     # create input data for question and query
     labels = []
     for query, question in zip(query_list, question_list):
-        labels.append({'question': question, 'query': query, 'db_id': 'o_tpani_cem'})
+        labels.append({'question': question, 'query': query, 'db_id': 'infra_dt'})
     with open(args.result_labels_path, 'w') as f:
         json.dump(labels, f, indent=2)
 

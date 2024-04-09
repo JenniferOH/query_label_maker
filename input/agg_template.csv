@@ -2,5 +2,5 @@ function,function_nat_list
 max,"['최대','가장 높은', 'max']"
 min,"['최소','제일 낮은', 'min']"
 avg,"['평균','agv', 'mean']"
-sum,"['합']"
+sum,"['합', '합걔']"
 stddev,"['stddev','표준편차']"

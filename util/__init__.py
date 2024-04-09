@@ -13,9 +13,9 @@ def get_argparser():
     parser.add_argument('--datecolumn_template_path', type=str, default="./input/datecolumn_template.csv")
     parser.add_argument('--agg_template_path', type=str, default="./input/agg_template.csv")
     parser.add_argument('--result_tables_path', type=str, default="./result/tables.json")
-    parser.add_argument('--result_labels_path', type=str, default="./result/labels.json")
-    parser.add_argument('--random_seed', type=int, default=0)
-    parser.add_argument('--num_labels', type=int, default=10)
+    parser.add_argument('--result_labels_path', type=str, default="./result/train.json")
+    parser.add_argument('--random_seed', type=int, default=1)
+    parser.add_argument('--num_labels', type=int, default=30)
     parser.add_argument('--shuffle', type=bool, default=True)
 
     # args = parser.parse_args()

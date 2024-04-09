@@ -5,10 +5,20 @@ from util.korean_josa import _yika
 from pyjosa.josa import Josa
 import re
 
-WHERE_DELIMETER = ['with ', 'where ', 'which ']
-WHERE_DELIMETER_BOOL = ['고 ']
-ORDER_BY_NAT = ['가장 높은', '최고', '가장 낮은', '최저']
-ORDER_BY = ['DESC', 'DESC', 'ASC', 'ASC']
+# WHERE_DELIMETER = ['with ', 'where ', 'which ']
+# WHERE_DELIMETER_BOOL = ['고 ']
+ORDER_BY = {
+    'string': {
+        'nat': ['가나다 내림차순', '내림차순', '역순', '가나다 오름차순', '순서대로', '사전 배열순', '가나다순'],
+        'sql': ['DESC', 'DESC', 'DESC', 'ASC', 'ASC', 'ASC', 'ASC']
+    },
+    'number': {
+        'nat': ['가장 높은', '최고', '가장 낮은', '최저'],
+        'sql': ['DESC', 'DESC', 'ASC', 'ASC']
+    }
+}
+# ORDER_BY_NAT = ['가장 높은', '최고', '가장 낮은', '최저']
+# ORDER_BY = ['DESC', 'DESC', 'ASC', 'ASC']
 COUNT_FORMAT = 'COUNT ( DISTINCT {count_column} )'
 AGG_FORMAT = '{agg_function} ( {agg_column} )'
 # AND_NAT = ['고', '이고']
@@ -106,17 +116,26 @@ class QueryGenerator:
 
             if '3' in template_type:    # order by query
                 limit_count = random.randint(1, 100)
-                orderby_num = random.randint(0, len(ORDER_BY_NAT)-1)
+                orderby_num = random.randint(0, 3)
 
                 # re-pick columns which are not used for select
                 orderby_col_df = column_df[~column_df.column.isin(select_col_df)].sample(random.randint(1, max_cols - len(select_col_df)))
                 orderby_column_nat_list = orderby_col_df.apply(lambda x: random.choice(x['column_nat']), axis=1).tolist()
                 orderby_column_list = orderby_col_df.column.tolist()
 
+                # if select column contains string, make this string order by,   else number orderby
+                if 'string' in orderby_col_df['type'].unique():
+                    ORDER_BY_NAT = ORDER_BY['string']['nat']
+                    ORDER_BY_SQL = ORDER_BY['string']['sql']
+                    question = question.replace('{string_order_by_nat}', ORDER_BY_NAT[orderby_num])
+                else:
+                    ORDER_BY_NAT = ORDER_BY['number']['nat']
+                    ORDER_BY_SQL = ORDER_BY['number']['sql']
+                    question = question.replace('{number_order_by_nat}', ORDER_BY_NAT[orderby_num])
+
                 question = question.replace('{orderby_column_nat}', ', '.join(orderby_column_nat_list))
                 query = query.replace('{orderby_column}', ', '.join(orderby_column_list))
-                question = question.replace('{order_by_nat}', ORDER_BY_NAT[orderby_num])
-                query = query.replace('{order_by}', ORDER_BY[orderby_num])
+                query = query.replace('{order_by}', ORDER_BY_SQL[orderby_num])
                 question = question.replace('{limit_count}', str(limit_count))
                 query = query.replace('{limit_count}',  str(limit_count))
 

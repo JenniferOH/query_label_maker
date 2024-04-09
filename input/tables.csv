@@ -74,10 +74,6 @@ o_samson_cm,cm_cell_info_summary,['T-PANI CELL 종합 정보 요약']
 o_samson_cm,cm_ukey_eqp_mdl,['T-PANI UKEY 단말모델 기본정보']
 o_samson_pm,pm_cei_cell_5m,['CELL 단위 신규 5분 CEI 데이터']
 o_smap,kpi_xcap,"['4G 5G 초 단위 측정 내역', 'KPI_XCAP']"
-o_smap,pscall_statistics_scenario,"['4G 5G 시나리오 단위 측정 내역', 'pscall_statistics_scenario']"
-o_smap,pscall_statistics_traffic_scenario,"['4G 5G 시나리오 단위 트래픽(traffic 측정 내역', 'pscall_statistics_traffic_scenario']"
-o_smap,pscall_xcap,"['4G 5G 콜 단위 측정 내역', 'pscall_xcap']"
-o_smap,pscall_xcap_traffic,"['4G 5G 콜 단위 트래픽(Traffic 측정 내역', 'pscall_xcap_traffic']"
 o_tango_a,aua_cell_by10sec_sum,['셀단위분석']
 o_tango_a,invxr_5g_id_link_ril_wl1,['INVXR 5G 정보 SON에서 IDCube 연동']
 o_tango_ec,cco_org_bas,['CCO_ORG_BAS']

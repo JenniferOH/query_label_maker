@@ -20,6 +20,10 @@ where_nat,where,type,last_flag
 {column_nat}{josa} 빈 값이고,{column} = '',string,0
 {column_nat}{josa} 빈 값이 아니고,{column} != '',string,0
 {column_nat}{josa} null이거나 빈 값이 아니고,{column} IS NOT NULL AND {column} != '',string,0
+{column_nat}에 {value}가 포함되고,{column} LIKE '%{value}%',string,0
+{column_nat}에 {value}가 들어가고,{column} LIKE '%{value}%',string,0
+{column_nat}{josa} {value}로 시작하고,{column} LIKE '%{value}',string,0
+{column_nat}{josa} {value}로 끝나고,{column} LIKE '{value}%',string,0
 {column_nat}이고,{column} = 'Y',bool,0
 {column_nat}{josa} 아니고,{column} = 'N',bool,0
 
@@ -42,5 +46,10 @@ where_nat,where,type,last_flag
 {column_nat}{josa} 빈 값인,{column} = '',string,1
 {column_nat}{josa} 빈 값이 아닌,{column} != '',string,1
 {column_nat}{josa} null이거나 빈 값이 아닌,{column} IS NOT NULL AND {column} != '',string,1
+{column_nat}에 {value}가 포함된,{column} LIKE '%{value}%',string,1
+{column_nat}에 {value}가 들어간,{column} LIKE '%{value}%',string,1
+{column_nat}{josa} {value}로 시작하는,{column} LIKE '%{value}',string,1
+{column_nat}{josa} {value}로 끝나는,{column} LIKE '{value}%',string,1
+{column_nat}이고,{column} = 'Y',bool,0
 {column_nat}인,{column} = 'Y',bool,1
 {column_nat}{josa} 아닌,{column} = 'N',bool,1
